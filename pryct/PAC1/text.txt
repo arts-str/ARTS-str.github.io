@@ -1,9 +1,0 @@
-WEBDOC PARA ASIGNATURA PRODUCCION AUDIOVISUAL CINÉTICA I, LDCV, UDELAR.
-</br></br>
-INSPIRADO EN LAS INFANCIAS EN LOS 80'S
-</br></br>
-
-<a href="DEMO/index.html" target="_blank">JUGAR</a> (SOLO PARA PC)
-</br></br>
-
-HTML, CSS, JS.

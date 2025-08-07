@@ -98,3 +98,7 @@ function checkForMobile(){
   }
 }
 
+
+function loadProyect(n) {
+  window.location.href = '/proyecto.html';
+}
