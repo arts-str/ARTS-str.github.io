@@ -1,6 +1,6 @@
 var porcentajeCompletado;
 const creditosTotales = 363;
-const creditos = 274;
+const creditos = 310;
 
 function degreeProgress() {
   const bar = document.getElementById('degreeProgressBarUs');

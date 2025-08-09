@@ -6,14 +6,22 @@
     <title>PORTFOLIO</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='topnav-style.css'>
 
 </head>
 <body onload="degreeProgress()">
        
-    <div class="topnav">
-        <a href="index.html">Inicio</a>
-        <a href="index.html#container-principal">Proyectos</a>
-        <a href="us.html">Quienes somos</a>
+    <div draggable="false" class="topnav">
+        <a href="./index.html">Inicio</a> 
+        <ul class="dropdown">
+                <a href="./index.html#container-principal">Proyectos</a>
+            <ul class="dropdown-content">
+                <li><a href="webdev.html">WebDev & Creative Coding</a></li>
+                <li><a href="#">Comunicación Visual</a></li>
+                <li><a href="#">Diseño y Animación 3D y 2D</a></li>
+            </ul>
+        </ul> 
+        <a href="./us.html">Quienes somos</a>
     </div>
 
     <div class="title-container" onmousemove="variar(event)">

@@ -28,11 +28,11 @@ window.addEventListener('scroll', () => {
       element.style.opacity = '0';
     }
 
-    if (elementBound.y + elementBound.height/2 > 0 && element.style.opacity !== 1) {
-      element.style.opacity = '1';
-    }else if (elementBound.y < 0 && element.style.opacity !==0){
-      element.style.opacity = '0';
-    }
+    //if (elementBound.y + elementBound.height/2 > 0 && element.style.opacity !== 1) {
+    //  element.style.opacity = '1';
+    //}else if (elementBound.y < 0 && element.style.opacity !==0){
+    //  element.style.opacity = '0';
+    //}
   });
   
 });
