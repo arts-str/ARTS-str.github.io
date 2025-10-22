@@ -225,6 +225,7 @@ html{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 30%;
 }
 .photo{
     display: flex;
@@ -255,8 +256,6 @@ html{
 .element{
     position: relative;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity .2s ease-in-out;
 }
 
 

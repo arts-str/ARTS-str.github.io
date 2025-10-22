@@ -9,7 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='topnav-style.css'>
 </head>
 
-<body id="body" onload="videoFunctionality(), loadProgress()">
+<body id="body" onload="loadProgress()">
 
     <div draggable="false" id="loadPage"> 
         <p class="load-text">Cargando...</p>
@@ -41,173 +41,22 @@
     <div class="container" id="container-principal">
 
 
-        <div class="photo-gallery">
+        <div class="photo-gallery" id="photos">
+            
 
-            <div class="collumn">
-
-                <div class="photo">
-                    <div onclick="fadeTooltip(1)" ontouchstart="fadeTooltip(1)" onmouseover="fadeTooltip(1)" id="tooltip"><p>Manten pulsado para reproducir</p></div>
-
-                    <div class="element">
-                        
-                        
-                        <video muted onclick="loadDoc(9)" webkit-playsinline playsinline class="image" draggable="false" loop>
-                            <source src="pryct/ENERGIA/1.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                            <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(1)" src="pryct/TIPOGRAFIA/1.png" alt="">
-
-                    </div>
-
-                    <div class="element">
-                        <video onclick="loadDoc(4)" webkit-playsinline playsinline class="image" draggable="false" loop>
-                            <source src="pryct/PENTIMENTO/2.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-                    
-                    <div class="element">
-                        <video onclick="loadDoc(7)" webkit-playsinline playsinline class="image" draggable="false" loop>
-                            <source src="pryct/INTERFERENCIA/1.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-                    
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(14)" src="pryct/BRASIL/1.png" alt="">
-
-                    </div>
-
-                    <div class="element">
-
-                        <video onclick="loadDoc(0)" webkit-playsinline playsinline class="image" draggable="false" loop>
-                            <source src="pryct/WAVES/1.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-
-                </div>    
-
-            </div>
-
-            <div class="collumn">
-
-                <div class="photo">
-                    <div class="element">
-                        <video onclick="loadDoc(3)" webkit-playsinline playsinline class="image" draggable="false" loop>
-                            <source src="pryct/REFRACCION/1.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(13)" src="pryct/CENTAURO/1.jpg" alt="">
-                    </div>
-                    
-                    <div class="element">
-                        <video  webkit-playsinline playsinline class="image" draggable="false" onclick="loadDoc(8)" loop>
-                            <source src="pryct/IAMITO/7.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-                    
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(10)" src="pryct/DCV/2.png" alt="">
-                    </div>
-                    
-
-                    <div class="element">
-                        <video  webkit-playsinline playsinline class="image" draggable="false" onclick="loadDoc(11)" loop>
-                            <source src="pryct/CRETINA/1.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(12)" src="pryct/COLOR/1.png" alt="">
-                    </div>
-                    
-
-                    <div class="element">
-                        <video  webkit-playsinline playsinline class="image" draggable="false" onclick="loadDoc(15)" loop> 
-                            <source src="./pryct/3D/1.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="collumn">
-
-                <div class="photo">
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(4)" src="pryct/PENTIMENTO/1.png" alt="">
-                    </div>
-                    
-                    <div class="element">
-                        <video  webkit-playsinline playsinline class="image" draggable="false"  onclick="loadDoc(6)" loop>
-                            <source src="pryct/NADA/1.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-
-                    <div class="element">
-                        <video  webkit-playsinline playsinline class="image" draggable="false" onclick="loadDoc(5)" loop> 
-                            <source src="pryct/PAC1/1.mp4#t=0.001" type="video/mp4">
-                        Tu navegador no soporta la reproducción de vídeo mp4.
-                        </video>
-                        <img src="rsc/UNMUTED.png" class="sound-button"/>
-
-                    </div>
-
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(2)" src="pryct/SINTAXIS/1.png" alt=""> 
-
-                    </div>
-
-                    <div class="element">
-                        <img class="image" draggable="false" onclick="loadDoc(1)" src="pryct/TIPOGRAFIA/2.png" alt="">
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
         </div>
     </div>
     
-    <div class="footer" id="footer-container">
+    <footer class="footer" id="footer-container">
         <p><strong>ARTS.STR</strong> | Todos los derechos reservados</p>
-    </div>
+    </footer>
+
+
     <script src='titulo.js'></script>
     <script src='fadeElements.js'></script>
     <script src='load.js'></script>
-    <script src='main.js'></script>
     <script src='getURL.js'></script>
-</head>
+    <script src='index_json.js'></script>
+    <script src='main.js'></script>
 </body>
 </html>

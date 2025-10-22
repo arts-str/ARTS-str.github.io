@@ -56,40 +56,6 @@ elements.forEach(element => {
 }
 
 
-//Agregar efecto de fade in tomando todos los elementos con la clase bloque-texto y element, aplicandole 
-//la opacidad en base a si su posición en Y es mayor a la del punto inferior del viewport
-const tooltip = document.getElementById('tooltip');
-
-
-window.addEventListener('scroll', () => {
-  if (checkForMobile() === true) {
-    var tooltipBound= tooltip.getBoundingClientRect();
-    if (tooltipBound.y + tooltipBound.height/2 > 0 && tooltip.style.opacity !== 1) {
-      tooltip.style.opacity = '0.8';
-      //fadeTooltip(4000);
-    }else if (tooltipBound.y < 0 && tooltip.style.opacity !==0){
-      tooltip.style.opacity = '0';
-    }
-  } else {      
-      tooltip.style.display = 'none';
-  }
-  
-});
-
-
-function fadeTooltip(time) {
-    setTimeout(() => {
-      tooltip.style.opacity = '0';
-    }, time);
-
-    setTimeout(() => {
-      tooltip.style.display = 'none';
-    }, time+500);
-
-}
-
-
-
 function checkForMobile(){
   if (innerWidth <= 768) {
     return true;
