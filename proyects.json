@@ -1,9 +1,17 @@
 {
     "proyectos" : [
         {
+           "title" : "LAS NEGRITAS.",
+            "text": "TAPA Y VISUALIZADOR PARA EL ÁLBUM DE ALLA FIN FINEST, LAS NEGRITAS.",
+            "length": "2",
+            "types": "png png",
+            "source":"LASNEGRITAS/",
+            "prefered_media": "1.png" 
+        },
+        {
            "title" : "SEÑALETICA.",
             "text": "PROYECTO DE SEÑALÉTICA PARA PROYECTO LINEA B DE MOVILIDAD METROPOLITANA DE CINVE </br></br> TRABAJO PARA DCV 5, FADU, UDELAR.",
-            "length": "4",
+            "length": "1",
             "types": "jpg png png png",
             "source":"SEÑALETICA/",
             "prefered_media": "1.jpg" 
