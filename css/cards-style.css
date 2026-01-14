@@ -1,0 +1,62 @@
+
+.project-card {
+    display: flex;
+    align-items: flex-start;
+    min-width: 600px;
+    margin: 0 1rem;
+}
+.project-card legend{
+    width: fit-content;
+    padding: 0 0.5rem;
+    font-weight: 600;
+}
+.project-card a, .project-card a img, .project-card a video {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 100ms ease-in;
+}
+.project-card img:hover, .project-card video:hover{
+    transform: scale(102%);
+}
+
+.project-card section {
+    width: 60%;
+    margin-left: 1rem;
+}
+
+.project-card section p {
+    font-weight: 200;
+    line-height: 150%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 14;
+    line-clamp: 14;
+    overflow: hidden;
+}
+.project-card section p a{
+    color: currentColor;
+}
+
+@media screen and (max-width: 768px) {
+    .project-card {
+        align-items: center;
+        min-width: fit-content;
+        max-width: fit-content;
+        flex-direction: column;
+        margin: 0;
+        margin: .5rem;
+    }
+    .project-card legend{
+        max-width: 300px;
+        padding: 0.5rem 0.5rem;
+    }
+    .project-card section {
+        width: 300px;
+        margin-left: 0;
+    }
+    .project-card section p {
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+    }
+}

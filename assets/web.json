@@ -1,0 +1,44 @@
+{
+    "projects": [
+        {
+            "title" : "ASCII-ARTS",
+            "description" : "Herramienta para convertir imágenes a arte ascii.",
+            "assetURL" : "PNG/ascii-arts.png",
+            "color" : "#ffffff",
+            "href" : "https://arts-str.github.io/ascii-arts/' target='_blank'",
+            "injectedStyle" : "border: 1px dashed #ffffff;"
+        },
+        {
+            "title" : "Generador de grillas",
+            "description" : "Herramienta para calcular todo lo relacionado a grilas para el diseño editorial.",
+            "assetURL" : "PNG/grid-generator.png",
+            "color" : "#9090c7",
+            "href" : "https://arts-str.github.io/grid-generator/' target='_blank",
+            "injectedStyle" : "border: 1px dashed #9090c7;"
+        },
+        {
+            "title" : "Movilidad en la frontera Uruguay - Brasil en Pandemia",
+            "description" : "Una infografía web para <i>Diseño de Comunicación Visual 5</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República.",
+            "assetURL" : "PNG/uruguay-brasil.png",
+            "color" : "#a77d6f",
+            "href" : "https://arts-str.github.io/INFOGRAFIA-DCV5/' target='_blank",
+            "injectedStyle" : "border: 1px dashed #a77d6f;"
+        },
+        {
+            "title" : "Camara de partículas",
+            "description" : "Ejercicio de creative coding, trabajo final de <i>Programación creativa e Interacción</i>, materia de <a target='_blank' href='https://www.artes.udelar.edu.uy'>Facultad de Artes</a> de la Universidad de la República.",
+            "assetURL" : "PNG/cam-particles.png",
+            "color" : "#e24776",
+            "href" : "https://editor.p5js.org/Facundo_Magnin/full/bKN8NHRrt' target='_blank",
+            "injectedStyle" : "border: 1px dashed #e24776;"
+        },
+        {
+            "title" : "Infancia en los 80's",
+            "description" : "Un Webdoc, trabajo final de <i>Producción Audiovisual Cinética 1</i>, materia de <a target='_blank' href='https://www.artes.udelar.edu.uy'>Facultad de Artes</a> de la Universidad de la República.",
+            "assetURL" : "MP4/pac-web.mp4",
+            "color" : "#49a471",
+            "href" : "https://arts-str.github.io/pablo' target='_blank",
+            "injectedStyle" : "width:300px; border: 1px dashed #49a471;"
+        }
+    ]
+}

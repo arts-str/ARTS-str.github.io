@@ -1,0 +1,103 @@
+{
+    "projects": [
+        {
+            "title" : "Las Negritas",
+            "description" : "Tapa y visualizador para el álbum de <a target='_blank' href='https://open.spotify.com/intl-es/artist/2HfWUUYQ5iGpiiakktYHog'>Alla Fin Finest</a>, <a target='_blank' href='https://www.youtube.com/watch?v=cD3sfqQKjg8'>Las Negritas</a>.",
+            "assetURL" : "PNG/negrita-tapa.png",
+            "color" : "#861215",
+            "href" : "?0",
+            "gallery" : ["PNG/negrita-tapa.png", "PNG/negrita-contratapa.png"],
+            "injectedStyle" : "border: 1px dashed #861215;"
+        },
+        {
+            "title" : "Deus criou vida, não criou raças",
+            "description" : "Tapa y visualizador para la beat tape de <a target='_blank' href='https://www.instagram.com/3000mito/'>mito3000</a>, <a target='_blank' href='https://www.youtube.com/watch?v=OcGnyKVW3Mk&list=RDOcGnyKVW3Mk'>Deus criou vida, não criou raças</a>.",
+            "assetURL" : "PNG/rio.png",
+            "color" : "#2f6be0",
+            "href" : "?1",
+            "gallery" : ["PNG/rio.png", "MP4/rio-visualizer.mp4", "MP4/rio-reel.mp4"],
+            "injectedStyle" : "border: 1px dashed #2f6be0;"
+        },
+        {
+            "title" : "Pentimento",
+            "description" : "Tapa y material promocional para el album de <a target='_blank' href='https://www.instagram.com/3000mito/'>mito3000</a>, <a target='_blank' href='https://www.youtube.com/watch?v=f2Xj1G2h0XU&list=OLAK5uy_m5zMrFKjKqUHSXdk4Ythy9MAETrXMhxV4'>Pentimento</a>.",
+            "assetURL" : "PNG/pentimento-tapa.png",
+            "color" : "#fcfbd6",
+            "href" : "?2",
+            "gallery" : ["PNG/pentimento-tapa.png", "PNG/pentimento-contratapa.png", "MP4/pentimento-reel.mp4"],
+            "injectedStyle" : "border: 1px dashed #fcfbd6;"
+        },
+        {
+            "title" : "Centauro",
+            "description" : "Experimentación con gradientes, inspirado en la forografía del telescopio Spitzer del cometa <a target='_blank' href='https://es.wikipedia.org/wiki/29P/Schwassmann-Wachmann'>29P/Schwassmann-Wachmann</a>.",
+            "assetURL" : "JPG/centauro.jpg",
+            "color" : "#500a97",
+            "href" : "?3",
+            "gallery" : ["JPG/centauro.jpg", "JPG/29p.jpg"],
+            "injectedStyle" : "border: 1px dashed #500a97;"
+        },
+        {
+            "title" : "Refracción",
+            "description" : "Proyecto de materialidades de vidrio experimentales en Blender.",
+            "assetURL" : "MP4/refraccion.mp4",
+            "color" : "#c15327",
+            "href" : "?4",
+            "gallery" : ["MP4/refraccion.mp4", "PNG/refraccion-poster.png"],
+            "injectedStyle" : "border: 1px dashed #c15327;"
+        },
+        {
+            "title" : "Nada",
+            "description" : "Primeras experimentaciones con repetición, color, animación y diseño de sonido.",
+            "assetURL" : "MP4/nada.mp4",
+            "color" : "#df3e23",
+            "href" : "?5",
+            "gallery" : ["MP4/nada.mp4", "PNG/nada-poster.png"],
+            "injectedStyle" : "border: 1px dashed #df3e23;"
+        },
+        {
+            "title" : "Ideas+",
+            "description" : "Afiche realizado para la 17<sup>ma</sup> edición de la feria Ideas+ para <i>Diseño de Comunicación Visual 2</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República.",
+            "assetURL" : "PNG/ideasmas.png",
+            "color" : "#eeece3",
+            "href" : "?6",
+            "gallery" : ["PNG/ideasmas.png"],
+            "injectedStyle" : "border: 1px dashed #eeece3;"
+        },
+        {
+            "title" : "Agrotoxicos",
+            "description" : "Folleto desplegable sobre el uso de agrotoxicos y los cuidados necesarios para el trabajador rural, realizado para <i>Diseño de Comunicación Visual 3</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República. <a href='assets/img/PDF/agrotoxicos.pdf' target='_blank'><b>Ver PDF</b></a>.",
+            "assetURL" : "PNG/agrotoxicos.png",
+            "color" : "#41ca91",
+            "href" : "?7",
+            "gallery" : ["PNG/agrotoxicos.png", "PNG/agrotoxicos-1.png", "PNG/agrotoxicos-2.png", "PNG/agrotoxicos-3.png", "PNG/agrotoxicos-4.png", "PNG/agrotoxicos-5.png"],
+            "injectedStyle" : "border: 1px dashed #41ca91;"
+        },
+        {
+            "title" : "Energía",
+            "description" : "Primeras experimentaciones con repetición, color, animación y diseño de sonido.",
+            "assetURL" : "MP4/energia.mp4",
+            "color" : "#db1920",
+            "href" : "?8",
+            "gallery" : ["MP4/energia.mp4", "JPG/energia-poster.jpg"],
+            "injectedStyle" : "border: 1px dashed #db1920;"
+        },
+        {
+            "title" : "Interferencia",
+            "description" : "Experimentación con diseño de sonido, materiales y deformaciones dinámicas de topología en Blender 3D, inspirado en el patrón de interferencia del <a target='_blank' href='https://es.wikipedia.org/wiki/Experimento_de_la_doble_rendija'>experimento de la doble rendija</a>.",
+            "assetURL" : "MP4/interferencia.mp4",
+            "color" : "#b10cff",
+            "href" : "?9",
+            "gallery" : ["MP4/energia.mp4", "JPG/energia-poster.jpg"],
+            "injectedStyle" : "border: 1px dashed #b10cff;"
+        },
+        {
+            "title" : "Señalética",
+            "description" : "Proyecto de señalética para la Linea B del proyecto de <a target='_blank' href='https://cinve.org.uy/wp-content/uploads/2024/10/Presentacio%CC%81n-FINAL-CINVE-FADU-8_10_24.pdf'>Movilidad Metropolitana</a> de <a target='_blank' href='https://cinve.org.uy/'>Cinve</a>, trabajo intermedio de <i>Diseño de Comunicación Visual 5</i>, materia de <a target='_blank' href='https://www.artes.udelar.edu.uy'>Facultad de Artes</a> de la Universidad de la República.",
+            "assetURL" : "JPG/señaletica.jpg",
+            "color" : "#9eaa00",
+            "href" : "?10",
+            "gallery" : ["JPG/señaletica.jpg", "PNG/señaletica-1.png", "PNG/señaletica-2.png"],
+            "injectedStyle" : "border: 1px dashed #9eaa00;"
+        }
+    ]
+}
