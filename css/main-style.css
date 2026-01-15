@@ -9,7 +9,7 @@
 html{
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 body{
     margin: 0;
@@ -26,7 +26,7 @@ body{
 article{
     scroll-margin-top: 5rem;
     margin: 1rem 2rem;
-    border-radius: 35px;
+    scrollbar-width: none;
 }
 #projects, #web{
     display: flex;
@@ -52,12 +52,15 @@ h2{
     #projects, #web{
         margin: 0;
         flex-direction: column;
-        max-height: 600px;
+        max-height: fit-content;
         width: fit-content;
     }
     h2{
         text-align: center;
         margin: 3rem 0 0 0;
         font-size: xx-large;
+    }
+    article{
+        scrollbar-width:initial;
     }
 }

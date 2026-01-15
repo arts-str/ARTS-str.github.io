@@ -5,5 +5,11 @@ fetchURL('assets/web.json').then(tools => {
   tools.projects.forEach((tool, index) => {
     toolsContainer.innerHTML += returnCard(tool, index);
   });
+  if (isOneLoaded) {
+    isAllLoaded = true;
+    initControls();
+  }else{
+    isOneLoaded = true;
+  }
 });
 

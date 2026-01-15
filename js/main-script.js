@@ -1,3 +1,7 @@
+let isAllLoaded = false;
+
+let isOneLoaded = true;
+
 /**Fetch al JSON
  * @params url
 */
@@ -14,7 +18,7 @@ const fetchURL = async (url) => {
  * @property assetURL
  * @property description
  */
-function returnCard(project, index) {
+function returnCard(project) {
     const imgTypes = ["png", "jpg"]; //Tipos de imagen
     //Si el tipo de archivo es imagen, insertar un img tag, si es video, un video tag
     const media = imgTypes.includes(project.assetURL.slice(project.assetURL.length - 3)) ?  //Chequea los ultimos tres caracteres de la url y los compara con el array de imgTypes

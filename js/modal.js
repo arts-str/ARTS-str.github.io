@@ -18,7 +18,7 @@ function returnModal(project) {
       <fieldset style="color:${project.color}; border: 1px solid ${project.color}" class="modal-content">
         <legend style="color:${project.color}">${project.title}</legend>
         <span style="color:${project.color}" class="close">&times;</span>
-        <div>
+        <div class="modal-carousel">
           <div class="modal-gallery">
               ${media}
           </div>
@@ -50,15 +50,9 @@ function returnGallery(project) {
     anchors.push(`<a class="gallery-anchor" href="#${index}" data-section="${index}">&bull;</a>`);
   })
   return anchors;
-  for (const mediaE of media) {
-    console.log(mediaE);
-
-  }
 }
 function highlightAnchor() {
   const selectedAnchor = document.getElementById(window.location.hash);
-  console.log(typeof window.location.hash, selectedAnchor);
 
 }
 
-console.log(window.location.hash);

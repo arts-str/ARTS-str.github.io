@@ -9,9 +9,7 @@ function handleGalleryAnchors() {
                 if (entry.isIntersecting) {
                     const id = entry.target.id;
                     galleryAnchors.forEach(anchor => {
-                        if (anchor.dataset.section === id) {
-                            console.log(entry);
-                            
+                        if (anchor.dataset.section === id) {                            
                         }
                         anchor.classList.toggle(
                             "active-gallery-anchor",
@@ -21,7 +19,7 @@ function handleGalleryAnchors() {
                 }
             });
         },
-        {threshold:0.5}
+        {threshold:0.6}
     );
 
     

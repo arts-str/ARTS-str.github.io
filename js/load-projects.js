@@ -5,4 +5,10 @@ fetchURL('assets/projects.json').then(projects => {
   projects.projects.forEach((project, index) => {
     projectsContainer.innerHTML += returnCard(project, index);
   });
+  if (isOneLoaded) {
+    isAllLoaded = true;
+    initControls();
+  }else{
+    isOneLoaded = true;
+  }
 });
