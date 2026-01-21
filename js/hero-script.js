@@ -16,7 +16,7 @@ fetchURL('assets/hero.json').then(heroProjects => {
     handleHeroAnchors();
     autoscrollHero();
     console.log(homeAnchors);
-    
+
     for (const anchor of homeAnchors.children) {
         anchor.onclick = () => {
             clearTimeout(heroScrollDebounce);
@@ -117,7 +117,11 @@ heroContainer.ontouchend = () => {
 
 heroFwd.onclick = (e) => {
     clearTimeout(heroScrollDebounce);
-    heroContainer.scrollBy({ top: 0, left: heroContainer.children[0].clientWidth, behaviour: "smooth" });
+    if (heroContainer.scrollLeft < heroContainer.scrollWidth - heroContainer.clientWidth) {
+        heroContainer.scrollBy({ top: 0, left: heroContainer.children[0].clientWidth, behaviour: "smooth" })
+    } else {
+        heroContainer.scrollTo({ top: 0, left: 0, behaviour: "smooth" })
+    }
     clearInterval(heroSrollInterval);
     heroScrollDebounce = setTimeout(() => {
         autoscrollHero();
@@ -126,7 +130,11 @@ heroFwd.onclick = (e) => {
 };
 heroBck.onclick = (e) => {
     clearTimeout(heroScrollDebounce);
-    heroContainer.scrollBy({ top: 0, left: -heroContainer.children[0].clientWidth, behaviour: "smooth" });
+    if (heroContainer.scrollLeft !== 0) {
+        heroContainer.scrollBy({ top: 0, left: -heroContainer.children[0].clientWidth, behaviour: "smooth" })
+    } else {
+        heroContainer.scrollTo({ top: 0, left: heroContainer.scrollWidth - heroContainer.clientWidth, behaviour: "smooth" })
+    }
     clearInterval(heroSrollInterval);
     heroScrollDebounce = setTimeout(() => {
         autoscrollHero();
