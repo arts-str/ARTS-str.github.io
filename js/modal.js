@@ -44,15 +44,10 @@ function returnMedia(project) {
 }
 
 function returnGallery(project) {
-  const media = returnMedia(project);
   let anchors = [];
-  project.gallery.forEach((mediaElement, index) => {
+  project.gallery.forEach((e, index) => {
     anchors.push(`<a class="gallery-anchor" href="#${index}" data-section="${index}">&bull;</a>`);
   })
   return anchors;
-}
-function highlightAnchor() {
-  const selectedAnchor = document.getElementById(window.location.hash);
-
 }
 

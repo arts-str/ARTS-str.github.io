@@ -1,0 +1,94 @@
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+}
+
+#hero-section {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    gap: 2rem;
+    width: 60%;
+    margin: 0 auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.hero-card {
+    scroll-margin-top: 15rem;
+    height: 500px;
+    min-width: 100%;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content p{
+    line-clamp: 14;
+    -webkit-line-clamp: 14;
+}
+
+.hero-background img,
+.hero-background video {
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 100ms ease-in;
+}
+
+.hero-content {
+    position: absolute;
+    background-color: var(--bg-overlay);
+    word-wrap: break-word;
+    width: 300px;
+    padding: 1rem;
+    top: 30%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-engage {
+    border: 1px solid currentColor;
+    background-color: var(--bg);
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    color: currentColor;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 5px;
+    user-select: none;
+    margin-top: 1rem;
+    align-self: flex-end;
+}
+
+.hero-card a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+#home-anchors {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#home-anchors a {
+    opacity: 0.2;
+    text-decoration: none;
+    color: currentColor;
+    font-size: 32pt;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-card {
+        min-height: 450px;
+        line-clamp: 14;
+        -webkit-line-clamp: 14;
+    }
+}

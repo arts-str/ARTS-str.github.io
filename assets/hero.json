@@ -1,0 +1,27 @@
+{
+    "projects":[{
+            "title" : "Las Negritas",
+            "description" : "Tapa y visualizador para el álbum de <a target='_blank' href='https://open.spotify.com/intl-es/artist/2HfWUUYQ5iGpiiakktYHog'>Alla Fin Finest</a>, <a target='_blank' href='https://www.youtube.com/watch?v=cD3sfqQKjg8'>Las Negritas</a>.",
+            "assetURL" : "PNG/negrita-tapa-hero.png",
+            "color" : "#861215",
+            "href" : "?0",
+            "injectedStyle" : "height:500px; border: 1px dashed #861215;"
+        },
+        {
+            "title" : "ASCII-ARTS",
+            "description" : "Herramienta para convertir imágenes a arte ascii.",
+            "assetURL" : "PNG/ascii-arts-hero.png",
+            "color" : "#ffffff",
+            "href" : "https://arts-str.github.io/ascii-arts/' target='_blank'",
+            "injectedStyle" : "border: 1px dashed #ffffff;"
+        },
+        {
+            "title" : "Generador de grillas",
+            "description" : "Herramienta para calcular todo lo relacionado a grilas para el diseño editorial.",
+            "assetURL" : "PNG/grid-generator-hero.png",
+            "color" : "#9090c7",
+            "href" : "https://arts-str.github.io/grid-generator/' target='_blank",
+            "injectedStyle" : "border: 1px dashed #9090c7;"
+        }
+    ]
+}
