@@ -7,8 +7,6 @@ fetchURL('assets/hero.json').then(heroProjects => {
         heroContainer.innerHTML += returnHeroCard(heroProject, index);
     });
 
-    console.log(heroProjects);
-
     homeAnchors.innerHTML += returnAnchors(heroProjects.projects);
 });
 
