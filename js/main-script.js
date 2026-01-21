@@ -22,7 +22,7 @@ function returnCard(project) {
     const imgTypes = ["png", "jpg"]; //Tipos de imagen
     //Si el tipo de archivo es imagen, insertar un img tag, si es video, un video tag
     const media = imgTypes.includes(project.assetURL.slice(project.assetURL.length - 3)) ?  //Chequea los ultimos tres caracteres de la url y los compara con el array de imgTypes
-        `<a href='${project.href}'><img style='${project.injectedStyle}' src='assets/img/${project.assetURL}' alt=""></img></a>` : `<a href='${project.href}'><video style='${project.injectedStyle}' autoplay muted loop playsinline src='assets/img/${project.assetURL}'></video></a>`;
+        `<a href='${project.href}'><img draggable="false" style='${project.injectedStyle}' src='assets/img/${project.assetURL}' alt=""></img></a>` : `<a href='${project.href}'><video draggable="false" style='${project.injectedStyle}' autoplay muted loop playsinline src='assets/img/${project.assetURL}'></video></a>`;
     
     return `
     <fieldset class="project-card" style="border: 1px solid ${project.color}">

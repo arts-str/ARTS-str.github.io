@@ -37,7 +37,7 @@ function returnMedia(project) {
   let media = [];
   project.gallery.forEach((mediaElement, index) => {
     let isImage = imgTypes.includes(mediaElement.slice(mediaElement.length - 3));
-    let mediaHtml = isImage ? `<img id="${index}" src="assets/img/${mediaElement}" alt=""></img>` : `<video id="${index}" autoplay muted loop playsinline> <source src="assets/img/${mediaElement}"> </video>`
+    let mediaHtml = isImage ? `<img draggable="false" id="${index}" src="assets/img/${mediaElement}" alt=""></img>` : `<video draggable="false" id="${index}" autoplay muted loop playsinline> <source src="assets/img/${mediaElement}"> </video>`
     media.push(mediaHtml);
   });
   return media;

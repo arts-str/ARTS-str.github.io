@@ -15,6 +15,7 @@
     object-fit: cover;
     border-radius: 5px;
     transition: transform 100ms ease-in;
+    user-select: none;
 }
 .project-card img:hover, .project-card video:hover{
     transform: scale(102%);
