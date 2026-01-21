@@ -3,6 +3,7 @@
     --bg-overlay: #050009e0;
     --text: #E9E9E9;
     --text-hover: #a8a8a8;
+    --bg-hover: #1d0630;
 }
 *{
     box-sizing: border-box;

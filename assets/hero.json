@@ -5,7 +5,7 @@
             "assetURL" : "PNG/negrita-tapa-hero.png",
             "color" : "#861215",
             "href" : "?0",
-            "injectedStyle" : "height:500px; border: 1px dashed #861215;"
+            "injectedStyle" : "height:500px;"
         },
         {
             "title" : "ASCII-ARTS",
@@ -13,7 +13,7 @@
             "assetURL" : "PNG/ascii-arts-hero.png",
             "color" : "#ffffff",
             "href" : "https://arts-str.github.io/ascii-arts/' target='_blank'",
-            "injectedStyle" : "border: 1px dashed #ffffff;"
+            "injectedStyle" : "height:500px;"
         },
         {
             "title" : "Generador de grillas",
@@ -21,7 +21,7 @@
             "assetURL" : "PNG/grid-generator-hero.png",
             "color" : "#9090c7",
             "href" : "https://arts-str.github.io/grid-generator/' target='_blank",
-            "injectedStyle" : "border: 1px dashed #9090c7;"
+            "injectedStyle" : "height:500px;"
         }
     ]
 }

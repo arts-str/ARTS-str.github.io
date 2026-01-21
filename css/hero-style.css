@@ -49,6 +49,7 @@
     right: 0;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
 }
 
 .hero-engage {
@@ -65,11 +66,16 @@
     user-select: none;
     margin-top: 1rem;
     align-self: flex-end;
-}
-
-.hero-card a {
     text-decoration: none;
+}
+.hero-engage:hover{
+    scale: 110%;
+    background-color: var(--bg-hover);
+}
+.hero-content p a {
     color: currentColor;
+    font-style: italic;
+    text-decoration: underline;
 }
 
 #home-anchors {

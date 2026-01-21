@@ -30,7 +30,7 @@ function returnHeroCard(heroProject, index) {
         <div class="hero-background">
             ${media}
         </div>
-                <div style="color:${heroProject.color}" class="hero-content">
+                <div style="color:${heroProject.color}; border: 1px dashed ${heroProject.color};" class="hero-content" >
                     <h1>${heroProject.title}</h1>
                     <p>${heroProject.description}</p>
                     <a href='${heroProject.href}' class="hero-engage">Ver más</a>
