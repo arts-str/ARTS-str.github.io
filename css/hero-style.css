@@ -20,12 +20,11 @@
     scroll-margin-top: 15rem;
     height: 500px;
     min-width: 100%;
-    padding: 3rem;
     position: relative;
     overflow: hidden;
 }
 
-.hero-content p{
+.hero-content p {
     line-clamp: 14;
     -webkit-line-clamp: 14;
 }
@@ -68,10 +67,12 @@
     align-self: flex-end;
     text-decoration: none;
 }
-.hero-engage:hover{
+
+.hero-engage:hover {
     scale: 110%;
     background-color: var(--bg-hover);
 }
+
 .hero-content p a {
     color: currentColor;
     font-style: italic;
@@ -92,8 +93,21 @@
 }
 
 @media screen and (max-width: 768px) {
+    #hero-section {
+        width: 100%;
+        min-width: 343px;
+    }
+
+    .hero-content {
+        bottom: 0;
+        width: 100%;
+        top: initial;
+        height: fit-content;
+    }
+
     .hero-card {
-        min-height: 450px;
+        scroll-margin-top: 7rem;
+        min-height: 500px;
         line-clamp: 14;
         -webkit-line-clamp: 14;
     }
