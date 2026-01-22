@@ -31,7 +31,7 @@
             "title" : "Centauro",
             "description" : "Experimentación con gradientes, inspirado en la forografía del telescopio Spitzer del cometa <a target='_blank' href='https://es.wikipedia.org/wiki/29P/Schwassmann-Wachmann'>29P/Schwassmann-Wachmann</a>.",
             "assetURL" : "JPG/centauro.jpg",
-            "color" : "#500a97",
+            "color" : "#ff1eed",
             "href" : "?3",
             "gallery" : ["JPG/centauro.jpg", "JPG/29p.jpg"],
             "injectedStyle" : "border: 1px dashed #500a97;"

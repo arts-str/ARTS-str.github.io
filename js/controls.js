@@ -5,7 +5,8 @@ function initControls() {
         control.onclick = (e) =>{
             e.preventDefault(); // important for anchors
             const scrollParent = e.target.parentElement.previousElementSibling;
-            scrollParent.scrollBy({top: 0, left: 632, behavior: "smooth",});
+            const scrollParentChild = e.target.parentElement.previousElementSibling.children[0];            
+            scrollParent.scrollBy({top: 0, left: scrollParentChild.clientWidth + convertRemToPixels(3), behavior: "smooth",});
         }
     }
     
@@ -15,11 +16,14 @@ function initControls() {
         control.onclick = (e) =>{
             e.preventDefault(); // important for anchors
             const scrollParent = e.target.parentElement.previousElementSibling;
-            scrollParent.scrollBy({top: 0, left: -632, behavior: "smooth",});
+            const scrollParentChild = e.target.parentElement.previousElementSibling.children[0];            
+            scrollParent.scrollBy({top: 0, left: -(scrollParentChild.clientWidth + convertRemToPixels(3)), behavior: "smooth",});
         }
     }
     
 
 }
 
-
+function convertRemToPixels(rem) {    
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}

@@ -24,7 +24,7 @@
     text-decoration: none;
     color: var(--text);
     transform-origin: center;
-    transition: transform 100ms ease-in;
+    transition: transform 50ms ease-in;
 }
 
 .nav-links *::after{
@@ -35,7 +35,7 @@
     width: 0;
     height: 2px;
     background: currentColor;
-    transition: width 0.3s ease;
+    transition: width 100ms ease;
 }
 
 .nav-links *:hover{
@@ -51,6 +51,7 @@
     fill: var(--text);
     margin: 1rem;
     width: 80px;
+    transition: transform 50ms ease;
 }
 .logo:hover{
     fill: var(--text-hover);

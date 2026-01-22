@@ -97,8 +97,7 @@
 }
 
 .hero button{
-    margin: auto auto;
-    border: 1px solid currentColor;
+    border: 1px currentColor solid;
     background-color: var(--bg);
     cursor: pointer;
     position: relative;
@@ -107,9 +106,18 @@
     color: currentColor;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
+    transition: 100ms ease;
     border-radius: 5px;
     user-select: none;
+}
+#hero-back{
+    margin: auto 1rem auto auto;
+}
+#hero-next{
+    margin: auto auto auto 1rem;
+}
+.hero button:hover{
+    background-color: var(--text-hover);
 }
 
 @media screen and (max-width: 768px) {
