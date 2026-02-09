@@ -21,6 +21,7 @@ function createFolder(project, i) {
             <p>${project.title}</p>`
     element.setAttribute('id', i);
     element.setAttribute('class', "folder");
+    element.style.left = 64 * i + 'px';      
     if (localStorage.getItem('folder-data' + i)) {
         let { x, y } = JSON.parse(localStorage.getItem('folder-data' + i));
         x = Number(x.match(/\d+/));
