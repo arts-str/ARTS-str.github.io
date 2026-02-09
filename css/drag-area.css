@@ -1,0 +1,5 @@
+.drag-area{
+    outline: 2px #004ec8be solid;
+    background-color: #004dc85d;
+    position: absolute;
+}

@@ -1,0 +1,96 @@
+.taskbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.left-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.right-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 1rem;
+}
+
+.taskbar a,
+time {
+    font-size: .9rem;
+    text-decoration: none;
+    color: var(--fg);
+    user-select: none;
+}
+
+.left-items a {
+    mix-blend-mode: difference;
+    padding: .5rem .5rem;
+}
+
+.logo {
+    padding: .2rem;
+    width: 3rem;
+    fill: var(--fg);
+}
+
+.taskbar a:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.wifi,
+.wifi svg,
+#sound,
+#sound svg {
+    height: 1.2rem;
+}
+
+.wifi svg {
+    fill: var(--fg);
+}
+
+.battery,
+.battery svg {
+    height: .9rem;
+}
+
+#sound:hover svg{
+    cursor: pointer;
+    stroke: var(--hover);
+}
+
+.inactive{
+    display: none;
+}
+
+#config{
+    height: 20px;
+    margin-right: -.3rem;
+    cursor: pointer;
+    transition: rotate 100ms ease;
+}
+#config svg{
+    fill: var(--fg);
+    width: 20px;
+}
+#config:hover svg{
+    fill: var(--hover);
+}
+
+#config:hover{
+    rotate: 45deg;
+}

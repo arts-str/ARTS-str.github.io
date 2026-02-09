@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 10">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-linecap: round;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #323232;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: url(#Degradado_sin_nombre_75);
+        isolation: isolate;
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_75" data-name="Degradado sin nombre 75" x1="1" y1="5" x2="16" y2="5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#323232"/>
+      <stop offset=".37" stop-color="#323232"/>
+      <stop offset=".38" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g id="SVGRepo_iconCarrier" data-name="SVGRepo iconCarrier">
+      <path class="cls-3" d="M1,5c0-1.89,0-2.83.59-3.41.59-.59,1.53-.59,3.41-.59h7c1.89,0,2.83,0,3.41.59.59.59.59,1.53.59,3.41h0c0,1.89,0,2.83-.59,3.41s-1.53.59-3.41.59h-7c-1.89,0-2.83,0-3.41-.59-.59-.59-.59-1.53-.59-3.41h0Z"/>
+      <path class="cls-1" d="M19,4v2"/>
+      <path class="cls-2" d="M1,5c0-1.89,0-2.83.59-3.41.59-.59,1.53-.59,3.41-.59h7c1.89,0,2.83,0,3.41.59.59.59.59,1.53.59,3.41h0c0,1.89,0,2.83-.59,3.41s-1.53.59-3.41.59h-7c-1.89,0-2.83,0-3.41-.59-.59-.59-.59-1.53-.59-3.41h0Z"/>
+    </g>
+  </g>
+</svg>

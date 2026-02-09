@@ -1,0 +1,6 @@
+main{
+    padding: 3rem 1rem 3rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+}

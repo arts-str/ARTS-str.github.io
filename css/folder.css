@@ -1,0 +1,29 @@
+.folder{
+    position: absolute;
+    top: 64px;
+    right: 0px;
+    width: 64px;
+    font-size: .8rem;
+    text-align: center;
+    padding: .2rem;
+    user-select: none;
+    z-index: 0;
+    cursor: pointer;
+}
+.folder:hover{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.selected{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.folder p{
+    color: var(--fg);
+}

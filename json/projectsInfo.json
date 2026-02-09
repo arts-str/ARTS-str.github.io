@@ -1,0 +1,159 @@
+{
+    "projects": [
+        {
+            "title": "Visual",
+            "projects": [
+                {
+                    "title": "Las Negritas",
+                    "description": "Tapa y visualizador para el álbum de <a target='_blank' href='https://open.spotify.com/intl-es/artist/2HfWUUYQ5iGpiiakktYHog'>Alla Fin Finest</a>, <a target='_blank' href='https://www.youtube.com/watch?v=cD3sfqQKjg8'>Las Negritas</a>.",
+                    "assetURL": "PNG/negrita-tapa.png",
+                    "id": "0",
+                    "gallery": [
+                        "PNG/negrita-tapa.png",
+                        "PNG/negrita-contratapa.png"
+                    ]
+                },
+                {
+                    "title": "Deus criou vida, não criou raças",
+                    "description": "Tapa y visualizador para la beat tape de <a target='_blank' href='https://www.instagram.com/3000mito/'>mito3000</a>, <a target='_blank' href='https://www.youtube.com/watch?v=OcGnyKVW3Mk&list=RDOcGnyKVW3Mk'>Deus criou vida, não criou raças</a>.",
+                    "assetURL": "PNG/rio.png",
+                    "id": "1",
+                    "gallery": [
+                        "PNG/rio.png",
+                        "MP4/rio-visualizer.mp4",
+                        "MP4/rio-reel.mp4"
+                    ]
+                },
+                {
+                    "title": "Pentimento",
+                    "description": "Tapa y material promocional para el album de <a target='_blank' href='https://www.instagram.com/3000mito/'>mito3000</a>, <a target='_blank' href='https://www.youtube.com/watch?v=f2Xj1G2h0XU&list=OLAK5uy_m5zMrFKjKqUHSXdk4Ythy9MAETrXMhxV4'>Pentimento</a>.",
+                    "assetURL": "PNG/pentimento-tapa.png",
+                    "id": "2",
+                    "gallery": [
+                        "PNG/pentimento-tapa.png",
+                        "PNG/pentimento-contratapa.png",
+                        "MP4/pentimento-reel.mp4"
+                    ]
+                },
+                {
+                    "title": "Centauro",
+                    "description": "Experimentación con gradientes, inspirado en la forografía del telescopio Spitzer del cometa <a target='_blank' href='https://es.wikipedia.org/wiki/29P/Schwassmann-Wachmann'>29P/Schwassmann-Wachmann</a>.",
+                    "assetURL": "JPG/centauro.jpg",
+                    "href": "3",
+                    "gallery": [
+                        "JPG/centauro.jpg",
+                        "JPG/29p.jpg"
+                    ]
+                },
+                {
+                    "title": "Refracción",
+                    "description": "Proyecto de materialidades de vidrio experimentales en Blender.",
+                    "assetURL": "MP4/refraccion.mp4",
+                    "id": "4",
+                    "gallery": [
+                        "MP4/refraccion.mp4",
+                        "PNG/refraccion-poster.png"
+                    ]
+                },
+                {
+                    "title": "Nada",
+                    "description": "Primeras experimentaciones con repetición, color, animación y diseño de sonido.",
+                    "assetURL": "MP4/nada.mp4",
+                    "id": "5",
+                    "gallery": [
+                        "MP4/nada.mp4",
+                        "PNG/nada-poster.png"
+                    ]
+                },
+                {
+                    "title": "Ideas+",
+                    "description": "Afiche realizado para la 17<sup>ma</sup> edición de la feria Ideas+ para <i>Diseño de Comunicación Visual 2</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República.",
+                    "assetURL": "PNG/ideasmas.png",
+                    "id": "6",
+                    "gallery": [
+                        "PNG/ideasmas.png"
+                    ]
+                },
+                {
+                    "title": "Agrotoxicos",
+                    "description": "Folleto desplegable sobre el uso de agrotoxicos y los cuidados necesarios para el trabajador rural, realizado para <i>Diseño de Comunicación Visual 3</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República. <a href='assets/img/PDF/agrotoxicos.pdf' target='_blank'><b>Ver PDF</b></a>.",
+                    "assetURL": "PNG/agrotoxicos.png",
+                    "id": "7",
+                    "gallery": [
+                        "PNG/agrotoxicos.png",
+                        "PNG/agrotoxicos-1.png",
+                        "PNG/agrotoxicos-2.png",
+                        "PNG/agrotoxicos-3.png",
+                        "PNG/agrotoxicos-4.png",
+                        "PNG/agrotoxicos-5.png"
+                    ]
+                },
+                {
+                    "title": "Energía",
+                    "description": "Primeras experimentaciones con repetición, color, animación y diseño de sonido.",
+                    "assetURL": "MP4/energia.mp4",
+                    "id": "8",
+                    "gallery": [
+                        "MP4/energia.mp4",
+                        "JPG/energia-poster.jpg"
+                    ]
+                },
+                {
+                    "title": "Interferencia",
+                    "description": "Experimentación con diseño de sonido, materiales y deformaciones dinámicas de topología en Blender 3D, inspirado en el patrón de interferencia del <a target='_blank' href='https://es.wikipedia.org/wiki/Experimento_de_la_doble_rendija'>experimento de la doble rendija</a>.",
+                    "assetURL": "MP4/interferencia.mp4",
+                    "id": "9",
+                    "gallery": [
+                        "MP4/interferencia.mp4"
+                    ]
+                },
+                {
+                    "title": "Señalética",
+                    "description": "Proyecto de señalética para la Linea B del proyecto de <a target='_blank' href='https://cinve.org.uy/wp-content/uploads/2024/10/Presentacio%CC%81n-FINAL-CINVE-FADU-8_10_24.pdf'>Movilidad Metropolitana</a> de <a target='_blank' href='https://cinve.org.uy/'>Cinve</a>, trabajo intermedio de <i>Diseño de Comunicación Visual 5</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República.",
+                    "assetURL": "JPG/señaletica.jpg",
+                    "id": "10",
+                    "gallery": [
+                        "JPG/señaletica.jpg",
+                        "PNG/señaletica-1.png",
+                        "PNG/señaletica-2.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Web",
+            "projects": [
+                {
+                    "title": "ASCII-ARTS",
+                    "description": "Herramienta para convertir imágenes a arte ascii. <br/> <button class='browser-try-button' onclick='createBrowser(`https://arts-str.github.io/ascii-arts/`)'>Probar</button>",
+                    "assetURL": "PNG/ascii-arts.png",
+                    "href": "https://arts-str.github.io/ascii-arts/"
+                },
+                {
+                    "title": "Generador de grillas",
+                    "description": "Herramienta para calcular todo lo relacionado a grilas para el diseño editorial. <br/> <button class='browser-try-button' onclick='createBrowser(`https://arts-str.github.io/grid-generator/`)'>Probar</button>",
+                    "assetURL": "PNG/grid-generator.png",
+                    "href": "https://arts-str.github.io/grid-generator/"
+                },
+                {
+                    "title": "Movilidad en la frontera Uruguay - Brasil en Pandemia",
+                    "description": "Una infografía web para <i>Diseño de Comunicación Visual 5</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República. <br/> <button class='browser-try-button' onclick='createBrowser(`https://arts-str.github.io/INFOGRAFIA-DCV5/`)'>Probar</button>",
+                    "assetURL": "PNG/uruguay-brasil.png",
+                    "href": "https://arts-str.github.io/INFOGRAFIA-DCV5/"
+                },
+                {
+                    "title": "Camara de partículas",
+                    "description": "Ejercicio de creative coding, trabajo final de <i>Programación creativa e Interacción</i>, materia de <a target='_blank' href='https://www.artes.udelar.edu.uy'>Facultad de Artes</a> de la Universidad de la República. <br/> <button class='browser-try-button' onclick='createBrowser(`https://editor.p5js.org/Facundo_Magnin/full/bKN8NHRrt`)'>Probar</button>",
+                    "assetURL": "PNG/cam-particles.png",
+                    "href": "https://editor.p5js.org/Facundo_Magnin/full/bKN8NHRrt"
+                },
+                {
+                    "title": "Infancia en los 80's",
+                    "description": "Un Webdoc, trabajo final de <i>Producción Audiovisual Cinética 1</i>, materia de <a target='_blank' href='https://www.fadu.edu.uy/'>Facultad de Arquitectura, Diseño y Urbanismo</a> de la Universidad de la República. <br/> <button class='browser-try-button' onclick='createBrowser(`https://arts-str.github.io/pablo`)'>Probar</button>",
+                    "assetURL": "MP4/pac-web.mp4",
+                    "href": "https://arts-str.github.io/pablo"
+                }
+            ]
+        }
+    ]
+}

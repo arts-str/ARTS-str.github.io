@@ -1,62 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>PORTFOLIO [INDEV]</title>
-    <meta name='viewport' content="width=device-width, maximum-scale=1.0">
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='topnav-style.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/taskbar.css">
+    <link rel="stylesheet" href="css/folder.css">
+    <link rel="stylesheet" href="css/explorer.css">
+    <link rel="stylesheet" href="css/drag-area.css">
+    <link rel="stylesheet" href="css/contex-menu.css">
+    <link rel="stylesheet" href="css/configuration.css">
+    <link rel="stylesheet" href="css/browser.css">
+    <link rel="stylesheet" href="css/loading.css">
 </head>
 
-<body id="body" onload="loadProgress()">
+<body>
+    <div class="loading-screen" id="loading-screen">
+        <div class="load-element">
+            <div class="load-logo-element">
+                <svg class="load-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.32 113.97">
+                    <path
+                        d="M154.54,1.44c-3.74,9.2-15.3,11.96-23.85,14.61-11.26,3.48-22.75,6.17-34.37,8.08-.65-1.17-2.17-1.79-3.62-.94-18.35,10.75-34.97,24.2-49.34,39.77,9.53-11.02,19.91-21.61,24.7-35.41,1.94-5.58,4.93-15.87-.68-20.15-6.23-4.76-13.85,2.54-17.96,6.71-12.04,12.24-22.29,26.29-30.39,41.42-4.67,8.72-8.62,17.83-11.82,27.19-.34.42-.48.91-.46,1.4C3.83,92.87,1.58,101.84.04,110.93c-.55,3.25,4.46,4.33,5.01,1.07,1.5-8.86,3.68-17.58,6.5-26.08,4.32-2.51,8.64-5.03,12.96-7.54.69-.4,1.38-.81,2.07-1.22-3.12,5.21-5.59,10.77-6.92,16.83-.66,3.01,3.3,4.03,4.79,1.69,3.63-5.68,7.54-11.16,11.69-16.45.34,1.32,1.66,2.44,3.26,1.93,13.21-4.2,30.91-7.63,42.51,2.31,6.31,5.41,9.23,14.01,16.18,18.75-1.08,2.28-2.18,4.56-3.31,6.82-1.48,2.95,3.1,5.26,4.58,2.31,1.13-2.27,2.24-4.56,3.33-6.85,1.44.55,3.96,1.3,7.01.93,0,0,3.21-.39,6.38-2.43,17.17-11.05,22.7-37.45,22.7-37.45,3.26-15.57,2.08-16.19,3.64-25.74,1.07-6.57,2.46-21.22,11.84-20.96,3.29.09,3.71-5.02.41-5.11-8.89-.25-13.43,7.71-15.3,15.31-2.02,8.2-1.87,10.32-4.19,25.82-1.47,9.84-2.46,16.5-5.9,24.61-7.17,16.92-17,21.34-18.99,21.29-2.79-.06-5.41-.92-5.41-.92,0,0,0,0-.01,0,11.56-25.17,20.41-51.56,26.36-78.62.99-.3,1.98-.6,2.97-.91,9.4-2.98,20.84-6.57,24.9-16.56,1.24-3.04-3.33-5.37-4.58-2.31ZM22.53,73.61c-2.77,1.61-5.54,3.23-8.31,4.84,7.41-19.42,18.2-37.53,31.91-53.25,2.65-3.04,5.41-6,8.27-8.85,2.16-2.15,4.86-4.91,8.09-5.23,5.8-.57,1.35,13.34.26,16.14-4.56,11.73-13.42,21.17-21.51,30.56-2.81,3.26-5.63,6.59-8.27,10.04-3.6,1.65-7.01,3.76-10.43,5.75ZM87.71,32.27c-11.09,18.72-30.12,31.41-48.31,42.92,13.78-16.67,30.12-31.17,48.31-42.92ZM100.33,97.46c-1.7-1.31-3.15-2.95-4.5-4.71-4.86-6.37-8.77-13.09-16.13-16.91-8.26-4.28-17.77-4.6-26.99-3.18,17.02-11.39,33.35-24.6,42.32-43.19.11,0,.22-.01.34-.03,10.2-1.63,20.3-3.81,30.25-6.59-5.84,25.68-14.32,50.68-25.28,74.6Z" />
+                </svg>
+            </div>
 
-    <div draggable="false" id="loadPage"> 
-        <p class="load-text">Cargando...</p>
-        <div class="degree-progress load" id="degreeProgressBarContainer">
-            <p id="percentage"></p>
-            <div class="degree-progress-bar" id="degreeProgressBar"></div>
+            <div class="load-bar">
+                <div class="load-content"></div>
+            </div>
         </div>
     </div>
-       
-    <div draggable="false" class="topnav">
-        <a href="./index.html">Inicio</a> 
-        <ul class="dropdown">
-                <a href="./index.html#container-principal">Proyectos</a>
-            <ul class="dropdown-content">
-                <li><a href="webdev.html">WebDev & Creative Coding</a></li>
+    <div class="taskbar">
+
+        <div class="left-items">
+            <a class="taskbar-button">
+                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.32 113.97">
+                    <path
+                        d="M154.54,1.44c-3.74,9.2-15.3,11.96-23.85,14.61-11.26,3.48-22.75,6.17-34.37,8.08-.65-1.17-2.17-1.79-3.62-.94-18.35,10.75-34.97,24.2-49.34,39.77,9.53-11.02,19.91-21.61,24.7-35.41,1.94-5.58,4.93-15.87-.68-20.15-6.23-4.76-13.85,2.54-17.96,6.71-12.04,12.24-22.29,26.29-30.39,41.42-4.67,8.72-8.62,17.83-11.82,27.19-.34.42-.48.91-.46,1.4C3.83,92.87,1.58,101.84.04,110.93c-.55,3.25,4.46,4.33,5.01,1.07,1.5-8.86,3.68-17.58,6.5-26.08,4.32-2.51,8.64-5.03,12.96-7.54.69-.4,1.38-.81,2.07-1.22-3.12,5.21-5.59,10.77-6.92,16.83-.66,3.01,3.3,4.03,4.79,1.69,3.63-5.68,7.54-11.16,11.69-16.45.34,1.32,1.66,2.44,3.26,1.93,13.21-4.2,30.91-7.63,42.51,2.31,6.31,5.41,9.23,14.01,16.18,18.75-1.08,2.28-2.18,4.56-3.31,6.82-1.48,2.95,3.1,5.26,4.58,2.31,1.13-2.27,2.24-4.56,3.33-6.85,1.44.55,3.96,1.3,7.01.93,0,0,3.21-.39,6.38-2.43,17.17-11.05,22.7-37.45,22.7-37.45,3.26-15.57,2.08-16.19,3.64-25.74,1.07-6.57,2.46-21.22,11.84-20.96,3.29.09,3.71-5.02.41-5.11-8.89-.25-13.43,7.71-15.3,15.31-2.02,8.2-1.87,10.32-4.19,25.82-1.47,9.84-2.46,16.5-5.9,24.61-7.17,16.92-17,21.34-18.99,21.29-2.79-.06-5.41-.92-5.41-.92,0,0,0,0-.01,0,11.56-25.17,20.41-51.56,26.36-78.62.99-.3,1.98-.6,2.97-.91,9.4-2.98,20.84-6.57,24.9-16.56,1.24-3.04-3.33-5.37-4.58-2.31ZM22.53,73.61c-2.77,1.61-5.54,3.23-8.31,4.84,7.41-19.42,18.2-37.53,31.91-53.25,2.65-3.04,5.41-6,8.27-8.85,2.16-2.15,4.86-4.91,8.09-5.23,5.8-.57,1.35,13.34.26,16.14-4.56,11.73-13.42,21.17-21.51,30.56-2.81,3.26-5.63,6.59-8.27,10.04-3.6,1.65-7.01,3.76-10.43,5.75ZM87.71,32.27c-11.09,18.72-30.12,31.41-48.31,42.92,13.78-16.67,30.12-31.17,48.31-42.92ZM100.33,97.46c-1.7-1.31-3.15-2.95-4.5-4.71-4.86-6.37-8.77-13.09-16.13-16.91-8.26-4.28-17.77-4.6-26.99-3.18,17.02-11.39,33.35-24.6,42.32-43.19.11,0,.22-.01.34-.03,10.2-1.63,20.3-3.81,30.25-6.59-5.84,25.68-14.32,50.68-25.28,74.6Z" />
+                </svg>
+            </a>
+            <a id="open-0">Visual</a>
+            <a id="open-1">Web</a>
+        </div>
+        <div class="right-items">
+            <div id="config">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                    <path
+                        d="M23.265,24.381l.9-.894c4.164.136,4.228-.01,4.411-.438l1.144-2.785L29.805,20l-.093-.231c-.049-.122-.2-.486-2.8-2.965V15.5c3-2.89,2.936-3.038,2.765-3.461L28.538,9.225c-.171-.422-.236-.587-4.37-.474l-.9-.93a20.166,20.166,0,0,0-.141-4.106l-.116-.263-2.974-1.3c-.438-.2-.592-.272-3.4,2.786l-1.262-.019c-2.891-3.086-3.028-3.03-3.461-2.855L9.149,3.182c-.433.175-.586.237-.418,4.437l-.893.89c-4.162-.136-4.226.012-4.407.438L2.285,11.733,2.195,12l.094.232c.049.12.194.48,2.8,2.962l0,1.3c-3,2.89-2.935,3.038-2.763,3.462l1.138,2.817c.174.431.236.584,4.369.476l.9.935a20.243,20.243,0,0,0,.137,4.1l.116.265,2.993,1.308c.435.182.586.247,3.386-2.8l1.262.016c2.895,3.09,3.043,3.03,3.466,2.859l2.759-1.115C23.288,28.644,23.44,28.583,23.265,24.381ZM11.407,17.857a4.957,4.957,0,1,1,6.488,2.824A5.014,5.014,0,0,1,11.407,17.857Z">
+                    </path>
+                </svg>
+            </div>
+            <div id="sound">
+                <svg id="muted" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--fg)">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.5 21H8a1 1 0 01-1-1v-8a1 1 0 011-1h7l5-5 1.586-1.586C22.846 3.154 25 4.047 25 5.828V6m-8 17l4.586 4.586c1.26 1.26 3.414.367 3.414-1.414V14.5M7 28L29 6">
+                    </path>
+                </svg>
+                <svg class="inactive" id="unmuted" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="var(--fg)">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 12v8a1 1 0 001 1h7l6.586 6.586c1.26 1.26 3.414.367 3.414-1.414V5.828c0-1.781-2.154-2.674-3.414-1.414L20 6l-5 5H8a1 1 0 00-1 1z">
+                    </path>
+                </svg>
+            </div>
+            <div class="wifi">
+                <svg viewBox="0 -2 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                    <g transform="translate(-303.000000, -3684.000000)">
+                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                            <path
+                                d="M252.600198,3532.58575 L254,3533.99975 L255.399802,3532.58575 C254.626644,3531.80475 253.373356,3531.80475 252.600198,3532.58575 M249.800594,3529.75775 L251.200396,3531.17175 C252.743742,3529.61175 255.256258,3529.61175 256.800594,3531.17175 L258.200396,3529.75775 C255.880922,3527.41375 252.120068,3527.41375 249.800594,3529.75775 M261,3526.92875 L259.600198,3528.34275 C256.512516,3525.22375 251.488474,3525.22375 248.399802,3528.34275 L247,3526.92875 C250.86579,3523.02375 257.13421,3523.02375 261,3526.92875">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <time id="time"></time>
+            <div class="battery">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 10">
+                    <defs>
+                        <style>
+                            .battery-button {
+                                stroke-linecap: round;
+                            }
+
+                            .battery-button,
+                            .battery-outline {
+                                fill: none;
+                                stroke: var(--fg);
+                                stroke-linejoin: round;
+                                stroke-width: 2px;
+                            }
+
+                            .battery_inner {
+                                fill: url(#battery_degrade);
+                                isolation: isolate;
+                            }
+                        </style>
+                        <linearGradient id="battery_degrade" x1="1" y1="5" x2="16" y2="5"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="var(--fg)" />
+                            <stop offset=".8" stop-color="var(--fg)">
+                                <animate attributeName="offset" dur="600s" from=".8" to="0" repeatCount="1" />
+                            </stop>
+                            <stop offset=".8" stop-color="#000" stop-opacity="0">
+                                <animate attributeName="offset" dur="600s" from=".8" to="0" repeatCount="1" />
+                            </stop>
+
+                        </linearGradient>
+
+                    </defs>
+                    <g id="Capa_1-2" data-name="Capa 1">
+                        <g id="SVGRepo_iconCarrier" data-name="SVGRepo iconCarrier">
+                            <path class="battery_inner"
+                                d="M1,5c0-1.89,0-2.83.59-3.41.59-.59,1.53-.59,3.41-.59h7c1.89,0,2.83,0,3.41.59.59.59.59,1.53.59,3.41h0c0,1.89,0,2.83-.59,3.41s-1.53.59-3.41.59h-7c-1.89,0-2.83,0-3.41-.59-.59-.59-.59-1.53-.59-3.41h0Z" />
+                            <path class="battery-button" d="M19,4v2" />
+                            <path class="battery-outline"
+                                d="M1,5c0-1.89,0-2.83.59-3.41.59-.59,1.53-.59,3.41-.59h7c1.89,0,2.83,0,3.41.59.59.59.59,1.53.59,3.41h0c0,1.89,0,2.83-.59,3.41s-1.53.59-3.41.59h-7c-1.89,0-2.83,0-3.41-.59-.59-.59-.59-1.53-.59-3.41h0Z" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <main id="main">
+        <div class="context-menu inactive" id="context-menu">
+            <ul>
+                <li id="context-config" class="context-menu-item-w-icon"><svg viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                        <path
+                            d="M23.265,24.381l.9-.894c4.164.136,4.228-.01,4.411-.438l1.144-2.785L29.805,20l-.093-.231c-.049-.122-.2-.486-2.8-2.965V15.5c3-2.89,2.936-3.038,2.765-3.461L28.538,9.225c-.171-.422-.236-.587-4.37-.474l-.9-.93a20.166,20.166,0,0,0-.141-4.106l-.116-.263-2.974-1.3c-.438-.2-.592-.272-3.4,2.786l-1.262-.019c-2.891-3.086-3.028-3.03-3.461-2.855L9.149,3.182c-.433.175-.586.237-.418,4.437l-.893.89c-4.162-.136-4.226.012-4.407.438L2.285,11.733,2.195,12l.094.232c.049.12.194.48,2.8,2.962l0,1.3c-3,2.89-2.935,3.038-2.763,3.462l1.138,2.817c.174.431.236.584,4.369.476l.9.935a20.243,20.243,0,0,0,.137,4.1l.116.265,2.993,1.308c.435.182.586.247,3.386-2.8l1.262.016c2.895,3.09,3.043,3.03,3.466,2.859l2.759-1.115C23.288,28.644,23.44,28.583,23.265,24.381ZM11.407,17.857a4.957,4.957,0,1,1,6.488,2.824A5.014,5.014,0,0,1,11.407,17.857Z">
+                        </path>
+                    </svg>Configuración</li>
             </ul>
-        </ul> 
-        <a href="PortfolioJAP">Quienes somos</a>
-    </div>
-
-    <div draggable="false" class="title-container">
-        <h1 id="font">SOY <a id="titulo-variable" href="">ARTS.</a></h1>
-    </div>
-
-    <a draggable="false" class="scroll-button-container top-scroll" href="#container-principal">
-        <svg class="scroll-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="aliceblue"d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z"/></svg>
-    </a>
-
-    <div class="container" id="container-principal">
-
-
-        <div class="photo-gallery" id="photos">
-            
 
         </div>
-    </div>
-    
-    <footer class="footer" id="footer-container">
-        <p><strong>ARTS.STR</strong> | Todos los derechos reservados</p>
-    </footer>
+        <div id="configuration" class="explorer" style="left: 118px; top: 68px; visibility: hidden;">
+            <div class="explorer-header" id="configuration-header"></div>
+            <div class="explorer-aside">
 
+                <div class="explorer-crm">
+                    <button class="explorer-close"></button>
+                    <button class="explorer-minimize"></button>
+                    <button class="explorer-restore"></button>
 
-    <script src='titulo.js'></script>
-    <script src='fadeElements.js'></script>
-    <script src='load.js'></script>
-    <script src='getURL.js'></script>
-    <script src='index_json.js'></script>
-    <script src='main.js'></script>
+                </div>
+                <div class="explorer-aside-section">
+                    <h4 class="explorer-aside-section-title">Configuraciones</h4>
+                    <ul class="explorer-aside-list">
+                        <li class="explorer-aside-section-item active" data-index="0">
+                            <svg class="explorer-aside-section-item-icon" fill="#1392d1" viewBox="0 0 32 32"
+                                version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M30 2.994h-28c-1.099 0-2 0.9-2 2v17.006c0 1.099 0.9 1.999 2 1.999h13v3.006h-5c-0.552 0-1 0.448-1 1s0.448 1 1 1h12c0.552 0 1-0.448 1-1s-0.448-1-1-1h-5v-3.006h13c1.099 0 2-0.9 2-1.999v-17.006c0-1.1-0.901-2-2-2zM30 22h-28v-17.006h28v17.006z" />
+                            </svg>
+                            <p class="explorer-aside-section-item-text">Pantalla</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="explorer-content">
+                <div class="explorer-content-topbar">
+                    <div class="explorer-content-topbar-left">
+                        <h3 class="explorer-content-topbar-title">Configuración</h3>
+                    </div>
+                    <div class="explorer-content-topbar-right">
+                        <button class="viewfinder">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
+                                <path
+                                    d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="explorer-content-items">
+                    <div class="screensaver-config">
+                        <img class="current-screensaver" id="current-screensaver" src="assets/img/PNG/fluctuacion.png"
+                            alt="" />
+                        <label class="screensaver-input-label" for="screensaver-input">Subir imagen</label>
+                        <input type="file" id="screensaver-input" accept="image/png, image/jpeg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="js/main.js"></script>
+    <script src="js/fetch.js"></script>
+    <script src="js/time.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/drag.js"></script>
+    <script src="js/explorer.js"></script>
+    <script src="js/details.js"></script>
+    <script src="js/folder.js"></script>
+    <script src="js/drag-mouse.js"></script>
+    <script src="js/indexerdb.js"></script>
+    <script src="js/context-menu.js"></script>
+    <script src="js/configuration.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/loading.js"></script>
 </body>
+
 </html>

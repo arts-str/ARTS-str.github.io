@@ -1,0 +1,26 @@
+.app{
+    max-width: 95px;
+    min-height: 115px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: .5rem;
+    transition: scale 100ms ease;
+    position: relative;
+}
+.app-icon{
+    width: 75px;
+}
+.app-label{
+    position: absolute;
+    bottom: 0;
+    user-select: none;
+    color: var(--fg);
+    font-family: "Fira Sans", sans-serif;
+}
+.app:active{
+    scale: 80%;
+}

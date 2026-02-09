@@ -1,0 +1,295 @@
+.explorer {
+    position: absolute;
+    left: 150px;
+    top: 150px;
+    min-width: 445px;
+    width: 60dvw;
+    min-height: 80dvh;
+    height: 60dvh;
+    background-color: var(--explorer);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #949494;
+    box-shadow: 0 10px 35px 5px #0000002d;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    resize: both;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    transition: width 100ms ease, height 100ms ease;
+}
+.explorer-max{
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0px;
+    border: none;
+    transition: top 100ms ease, left 100ms ease;
+}
+.explorer::-webkit-resizer {
+  display: none;
+}
+.explorer::-moz-resizer {
+  display: none;
+}
+.explorer-header {
+    position: absolute;
+    width: inherit;
+    height: 48px;
+    border-radius: 16px;
+    z-index: 1;
+    min-width: 60dvw;
+    margin-left: calc(6rem);
+}
+
+.explorer-aside {
+    background-color: var(--explorer-aside);
+    width: 200px;
+}
+
+.explorer-crm {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    padding: 1.4rem 0 0 1.6rem;
+    display: flex;
+    gap: .5rem;
+    
+}
+
+.explorer-crm * {
+    min-width: 15px;
+    min-height: 15px;
+    border-radius: 100%;
+    border: none;
+    box-shadow: inset 0 0 0 0.5px rgba(0,0,0,.15);
+}
+
+.explorer-crm .explorer-close {
+    cursor: pointer;
+    background-color: #e44f45;
+}
+
+.explorer-crm .explorer-close:hover {
+    background-color: #ce3030;
+}
+
+.explorer-crm .explorer-minimize {
+    cursor: pointer;
+    background-color: #f3b83c;
+}
+
+.explorer-crm .explorer-minimize:hover {
+    background-color: #dda02e;
+}
+
+.explorer-crm .explorer-restore {
+    cursor: pointer;
+    background-color: #33c544;
+}
+
+.explorer-crm .explorer-restore:hover {
+    background-color: #23b347;
+}
+
+.explorer-aside-section {
+    margin-top: 1.3rem;
+}
+
+.explorer-aside-section-title {
+    color: var(--explorer-aside-title);
+    padding-left: 1.6rem;
+    user-select: none;
+    font-weight: 600;
+}
+
+.explorer-aside-section ul {
+    list-style-type: none;
+}
+
+.explorer-aside-section-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .4rem;
+    border-radius: 5px;
+    padding-left: 1rem;
+    margin: .5rem .6rem .5rem .6rem;
+    font-weight: 400;
+    color: var(--explorer-aside-text);
+}
+
+.explorer-aside-section-item:hover {
+    background-color: var(--hover);
+}
+
+.explorer-aside-section-item:active {
+    outline: 2px #004ec8 solid;
+}
+.explorer-aside-section-item-active{
+    background-color: var(--hover);
+}
+.explorer-aside-section-item-icon {
+    width: 1.5rem;
+}
+
+.explorer-aside-section-item-text {
+    user-select: none;
+}
+.explorer-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+.explorer-content-topbar {
+    margin: 1rem 1rem 0 1rem;
+    position: relative;
+    width: calc(100% - 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.explorer-content-topbar-left{
+    display: flex;
+    align-items: center;
+}
+
+.explorer-content-topbar-right{
+    margin-left: 3rem;
+}
+.explorer-content-topbar button{
+    position: relative;
+    z-index: 2;
+}
+.explorer-content-topbar button{
+    background-color: transparent;
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+.explorer-content-topbar button svg{
+    
+    fill: var(--explorer-aside-text);
+}
+.explorer-content-topbar-title{
+    color: var(--explorer-aside-text);
+    margin-left: 1rem;
+    user-select: none;
+}
+.explorer-content-topbar .viewfinder svg{
+    width: 1.5rem;
+    fill: none;
+    stroke: var(--explorer-aside-text);
+    transition: transform 100ms ease-in-out;
+}
+.explorer-content-topbar .viewfinder:hover svg{
+    cursor: pointer;
+    stroke: var(--explorer-aside-title);
+    transform: translateX(-5px);
+}
+.explorer-content-items{
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    flex: 1;         
+    min-height: 0;   
+    overflow: auto;  
+}
+.explorer-content-item{
+    top: 64px;
+    right: 0px;
+    width: 96px;
+    max-height: 128px;
+    overflow: hidden;
+    color: var(--fg);
+    font-size: .8rem;
+    text-align: center;
+    padding: .5rem;
+    user-select: none;
+    
+}
+.explorer-content-item img, .explorer-content-item video{
+    user-select: none;
+    position: relative;
+    width: 100%;
+    max-height: 96px;
+    object-fit: cover;
+}
+.explorer-content-item p{
+    user-select: none;
+    color: var(--explorer-aside-text);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+.explorer-content-item:hover{
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.explorer-content .details-content{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    color: var(--explorer-aside-text);
+    margin-left: 1rem;
+}
+.details-content-text{
+    max-width: 250px;
+    -webkit-line-clamp: 14;
+    line-clamp: 14;
+    overflow: hidden;
+}
+.details-content-text a{
+    color: #004ec8;
+}
+.details-content img, .details-content video{
+    min-width: 300px;
+    width: 300px;
+    max-height: 300px;
+    object-fit: contain;
+}
+.details-media{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+.details-gallery {
+    display: flex;
+    gap: .5rem;
+    padding: .5rem;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    align-content: start;
+    flex: 1;         
+}
+
+.details-gallery-item {
+    width: 64px;
+    height: 64px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.details-gallery-item img,
+.details-gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
