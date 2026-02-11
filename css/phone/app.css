@@ -2,14 +2,14 @@
     max-width: 95px;
     min-height: 115px;
     height: fit-content;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
     padding: .5rem;
     transition: scale 100ms ease;
-    position: relative;
 }
 .app-icon{
     width: 75px;
@@ -23,4 +23,10 @@
 }
 .app:active{
     scale: 80%;
+}
+
+@media screen and (min-width: 500px) {
+    .app{
+        display: none;
+    }
 }

@@ -1,4 +1,4 @@
-.loading-screen{
+.loading-screen {
     position: fixed;
     width: 100dvw;
     height: 100dvh;
@@ -10,58 +10,78 @@
     animation: fade ease 500ms 1.5s forwards;
 }
 
-.load-bar{
+.load-bar {
     width: 30rem;
     height: 15px;
     border: var(--bg) 1px solid;
     border-radius: 35px;
 }
 
-.load-content{
+.load-content {
     position: relative;
     background-color: var(--explorer-aside-text);
     width: 0%;
     animation: load ease 1.5s;
     height: 100%;
 }
-.load-element{
+
+.load-element {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     margin-top: -5rem;
 }
-.load-logo{
+
+.load-logo {
     fill: var(--explorer-aside-text);
     width: 200px;
-    display: block; /* avoids inline SVG quirks */
+    display: block;
+    /* avoids inline SVG quirks */
 }
-.load-logo-element{
+
+.load-logo-element {
     display: flex;
     flex-direction: row;
     align-items: baseline;
     width: fit-content;
     transform: translateX(1rem);
 }
+
 @keyframes load {
     0% {
         width: 0%;
     }
-    50%{
+
+    50% {
         width: 90%;
     }
-    90%{
+
+    90% {
         width: 95%;
     }
+
     100% {
         width: 100%;
     }
 }
+
 @keyframes fade {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
+    }
+}
+
+@media screen and (min-width: 300px) {
+    .load-bar {
+        width: 20rem;
+    }
+
+    .load-logo {
+        width: 10rem;
     }
 }

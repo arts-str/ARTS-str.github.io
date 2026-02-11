@@ -1,3 +1,5 @@
+const isIOSMode = () => window.matchMedia("(max-width: 500px)").matches;
+
 
 const contextMenu = document.getElementById('context-menu');
 

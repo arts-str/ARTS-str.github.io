@@ -4,7 +4,7 @@ dragArea.classList.add('drag-area');
 let startX, startY;
 
 
-main.onmousedown = (e) => {
+main.onpointerdown = (e) => {
     if (e.target.closest('.explorer, .folder')) return;
     if (e.button === 2) return;
     if (!contextMenu.classList.contains('inactive')) {
@@ -21,7 +21,7 @@ main.onmousedown = (e) => {
 
     main.appendChild(dragArea);
 
-    main.onmousemove = (e) => {
+    main.onpointermove = (e) => {
         const currentX = e.clientX;
         const currentY = e.clientY;
 
@@ -51,8 +51,8 @@ main.onmousedown = (e) => {
 
 };
 
-main.onmouseup = () => {
-    main.onmousemove = null;
+main.onpointerup = () => {
+    main.onpointermove = null;
     dragArea.remove();
 };
 
@@ -70,7 +70,7 @@ function clearFolderSelection() {
         .forEach(f => f.classList.remove('selected'));
 }
 
-document.addEventListener('mousedown', (e) => {
+document.addEventListener('pointerdown', (e) => {
     // If clicking a folder don't clear
     if (e.target.closest('.folder')) return;
 

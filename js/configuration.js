@@ -3,38 +3,51 @@ const screensaverInput = document.getElementById('screensaver-input');
 const currentScreensaver = document.getElementById('current-screensaver');
 const READER = new FileReader(); //Lector de archivos
 const configButton = document.getElementById('config');
+const configApp = document.getElementById('config-app');
 dragElement(configExplorer);
 
 configExplorer.querySelector('.explorer-close')
-    .addEventListener('mousedown', e => e.stopPropagation());
-configExplorer.querySelector('.explorer-aside-list')
-    .addEventListener('mousedown', e => {
-        const item = e.target.closest('.explorer-aside-section-item');
-        item.classList.add('active');
+    .addEventListener('pointerdown', e => e.stopPropagation());
 
-    });
 configExplorer.querySelector('.explorer-close')
     .addEventListener('click', () => {
         configExplorer.style.visibility = 'hidden';
+    });
+configExplorer.querySelector('.explorer-back')
+    .addEventListener('pointerdown', e => e.stopPropagation());
+
+configExplorer.querySelector('.explorer-back')
+    .addEventListener('click', () => {
+        configExplorer.style.visibility = 'hidden';
+    });
+configExplorer.querySelector('.explorer-aside-list')
+    .addEventListener('pointerdown', e => {
+        const item = e.target.closest('.explorer-aside-section-item');
+        item.classList.add('active');
+
     });
 configExplorer.querySelector('.explorer-restore')
     .addEventListener('click', () => {
         configExplorer.classList.toggle('explorer-max');
     });
 contextMenu.querySelector('#context-config')
-    .addEventListener('mousedown', e => e.stopPropagation());
+    .addEventListener('pointerdown', e => e.stopPropagation());
 contextMenu.querySelector('#context-config')
     .addEventListener('click', () => {
         configExplorer.style.visibility = 'visible';
         configExplorer.style.zIndex = topZ + 1;
         contextMenu.classList.toggle('inactive');
     });
-configButton.addEventListener('mousedown', e => e.stopPropagation());
+configButton.addEventListener('pointerdown', e => e.stopPropagation());
 configButton.addEventListener('click', () => {
     configExplorer.style.visibility = 'visible';
     configExplorer.style.zIndex = topZ + 1;
 });
-
+configApp.addEventListener('pointerdown', e => e.stopPropagation());
+configApp.addEventListener('click', () => {
+    configExplorer.style.visibility = 'visible';
+    configExplorer.style.zIndex = topZ + 1;
+});
 window.onload = async () => {
     const savedImage = await loadImageFromDB('image-loaded'); //Buscamos una imagen previa en IndexerDB
     if (savedImage) { //Si existe
@@ -61,6 +74,6 @@ screensaverInput.oninput = (e) => {
 
 }
 
-configExplorer.onmousedown = () => {
+configExplorer.onpointerdown = () => {
     bringToFront(configExplorer);
 }

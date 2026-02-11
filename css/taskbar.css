@@ -68,29 +68,65 @@ time {
     height: .9rem;
 }
 
-#sound:hover svg{
+#sound:hover svg {
     cursor: pointer;
     stroke: var(--hover);
 }
 
-.inactive{
+.inactive {
     display: none;
 }
 
-#config{
+#config {
     height: 20px;
     margin-right: -.3rem;
     cursor: pointer;
     transition: rotate 100ms ease;
 }
-#config svg{
+
+#config svg {
     fill: var(--fg);
     width: 20px;
 }
-#config:hover svg{
+
+#config:hover svg {
     fill: var(--hover);
 }
 
-#config:hover{
+#config:hover {
     rotate: 45deg;
+}
+
+@media screen and (max-width: 500px) {
+    .taskbar{
+        height: 30px;
+        
+    }
+    time {
+        position: absolute;
+        left: 0;
+        padding: 1rem;
+        font-size: 14pt;
+        margin-top: 1rem;
+    }
+    #config, #sound{
+        display: none;
+    }
+    .left-items{
+        display: none;
+    }
+    .right-items{
+        gap: 0;
+    }
+    .wifi{
+        position: absolute;
+        right: 0;
+        margin-right: 2.5rem;
+        margin-top: 1rem;
+    }
+    .battery{
+        position: absolute;
+        right: 0;
+        margin-top: 1rem;
+    }
 }

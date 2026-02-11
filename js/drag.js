@@ -7,38 +7,39 @@ function dragElement(elmnt) {
     const DRAG_THRESHOLD = 5;
 
     const dragTarget = document.getElementById(elmnt.id + "-header") || elmnt;
-    dragTarget.onmousedown = dragMouseDown;
+    dragTarget.addEventListener("pointerdown", dragPointerDown);
 
-    function dragMouseDown(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
+
+    function dragPointerDown(e) {
+        // e.preventDefault();
 
         pos3 = e.clientX;
         pos4 = e.clientY;
         moved = false;
 
-        // If dragging a selected folder, move all selected folders
         if (elmnt.classList.contains('folder') && elmnt.classList.contains('selected')) {
             dragGroup = Array.from(document.querySelectorAll('.folder.selected'));
         } else {
             dragGroup = [elmnt];
         }
 
-        // Store initial positions
         startPositions = dragGroup.map(el => ({
             el,
             left: el.offsetLeft,
             top: el.offsetTop
         }));
 
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
+        document.addEventListener("pointermove", elementDrag);
+        document.addEventListener("pointerup", closeDragElement);
+
     }
 
 
 
+
     function elementDrag(e) {
+        if (isIOSMode()) return; // 🚫 movement disabled in iOS
+
         e.preventDefault();
 
         const dx = e.clientX - pos3;
@@ -58,9 +59,10 @@ function dragElement(elmnt) {
     }
 
 
+
     function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
+        document.removeEventListener("pointermove", elementDrag);
+        document.removeEventListener("pointerup", closeDragElement);
 
         dragGroup.forEach(el => {
             if (el.classList.contains("folder")) {
@@ -73,7 +75,6 @@ function dragElement(elmnt) {
                 );
             }
         });
-
         // Only open explorer if it was a click (not a drag) on a single folder
         if (
             dragGroup.length === 1 &&

@@ -18,6 +18,7 @@ function createBrowser(href, id) {
 
                             </div>
                         </div>
+                        <svg class="explorer-back" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12H18M6 12L11 7M6 12L11 17"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 
                         <h3 class="explorer-content-topbar-title">Navegador</h3>
                     </div>
@@ -25,7 +26,7 @@ function createBrowser(href, id) {
                         <input class="browser-url" type="text" readonly value="${href}">
                     </div>
                 </div>
-                <div class="explorer-content-items">
+                <div class="explorer-content-items browser-frame-container">
                     <iframe class="browser-iframe" allow="camera" src="${href}"
                         frameborder="0"></iframe>
                 </div>
@@ -33,13 +34,20 @@ function createBrowser(href, id) {
 
     main.appendChild(browser);
     dragElement(browser);
-    browser.onmousedown = () => {
+    browser.onpointerdown = () => {
         bringToFront(browser);
     }
     browser.querySelector('.explorer-close')
-        .addEventListener('mousedown', e => e.stopPropagation());
+        .addEventListener('pointerdown', e => e.stopPropagation());
 
     browser.querySelector('.explorer-close')
+        .addEventListener('click', () => {
+            browser.remove();
+        });
+    browser.querySelector('.explorer-back')
+        .addEventListener('pointerdown', e => e.stopPropagation());
+
+    browser.querySelector('.explorer-back')
         .addEventListener('click', () => {
             browser.remove();
         });

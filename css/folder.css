@@ -1,7 +1,6 @@
-.folder{
+.folder {
     position: absolute;
     top: 64px;
-    right: 0px;
     width: 64px;
     font-size: .8rem;
     text-align: center;
@@ -9,21 +8,68 @@
     user-select: none;
     z-index: 0;
     cursor: pointer;
+    touch-action: none;
 }
-.folder:hover{
+
+.folder:hover {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
-.selected{
+
+.selected {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
-.folder p{
+
+.folder p {
     color: var(--fg);
+}
+
+@media screen and (max-width: 500px) {
+    .folder {
+        position: relative;
+        top: initial !important;
+        left: initial !important;
+        width: 95px;
+        min-height: 115px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: .5rem;
+        transition: scale 100ms ease;
+        font-size: initial;
+    }
+
+    .folder svg {
+        width: 75px;
+    }
+
+    .folder p {
+        position: absolute;
+        bottom: 0;
+        user-select: none;
+        color: var(--fg);
+        font-family: "Fira Sans", sans-serif;
+    }
+
+    .folder:active {
+        scale: 80%;
+    }
+
+    .folder:hover {
+        background: none;
+        border-radius: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
 }

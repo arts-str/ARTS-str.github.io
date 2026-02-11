@@ -1,5 +1,4 @@
 const folders = document.querySelectorAll('.folder');
-
 fetchURL("json/projectsInfo.json").then(projects => {
     for (let i = 0; i < projects.projects.length; i++) {
         const folder = createFolder(projects.projects[i], i);
@@ -7,6 +6,7 @@ fetchURL("json/projectsInfo.json").then(projects => {
         dragElement(folder);
     }
 });
+
 
 
 function createFolder(project, i) {
@@ -21,21 +21,24 @@ function createFolder(project, i) {
             <p>${project.title}</p>`
     element.setAttribute('id', i);
     element.setAttribute('class', "folder");
-    element.style.left = 64 * i + 'px';      
-    if (localStorage.getItem('folder-data' + i)) {
-        let { x, y } = JSON.parse(localStorage.getItem('folder-data' + i));
-        x = Number(x.match(/\d+/));
-        y = Number(y.match(/\d+/));
-        if (x > window.innerWidth) {
-            const dif = x - window.innerWidth;
-            x -= dif + 64;
-            console.log(x, dif);
-        } if (y > window.innerHeight) {
-            const dif = y - window.innerHeight;
-            y -= dif + 64;
+    element.style.left = 64 * i + 'px';
+    if (!isIOSMode()) {
+        if (localStorage.getItem('folder-data' + i)) {
+            let { x, y } = JSON.parse(localStorage.getItem('folder-data' + i));
+            x = Number(x.match(/\d+/));
+            y = Number(y.match(/\d+/));
+            if (x > window.innerWidth) {
+                const dif = x - window.innerWidth;
+                x -= dif + 64;
+                console.log(x, dif);
+            } if (y > window.innerHeight) {
+                const dif = y - window.innerHeight;
+                y -= dif + 64;
+            }
+            element.style.left = x + 'px';
+            element.style.top = y + 'px';
         }
-        element.style.left = x + 'px';        
-        element.style.top = y + 'px';
     }
+
     return element;
 }

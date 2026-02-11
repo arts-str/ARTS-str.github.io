@@ -38,7 +38,8 @@ function createDetailsExplorer(item, asideItems, i, itemIndex) {
         <div class="explorer-content">
             <div class="explorer-content-topbar">
                 <div class="explorer-content-topbar-left">
-                    
+                    <svg class="explorer-back" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12H18M6 12L11 7M6 12L11 17"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
                     <h3 class="explorer-content-topbar-title">${globalProject.projects[i].title}</h3>
                 </div>
                 <div class="explorer-content-topbar-right">
@@ -80,20 +81,27 @@ function createDetailsExplorer(item, asideItems, i, itemIndex) {
         asideList.appendChild(clone);
     });
     explorer.querySelector('.explorer-close')
-        .addEventListener('mousedown', e => e.stopPropagation());
+        .addEventListener('pointerdown', e => e.stopPropagation());
 
     explorer.querySelector('.explorer-close')
         .addEventListener('click', () => {
             explorer.remove();
         });
+    explorer.querySelector('.explorer-back')
+        .addEventListener('pointerdown', e => e.stopPropagation());
+
+    explorer.querySelector('.explorer-back')
+        .addEventListener('click', () => {
+            explorer.style.visibility = 'hidden';
+        });
     explorer.querySelector('.explorer-restore')
-            .addEventListener('click', () => {
-                explorer.classList.toggle('explorer-max');
-            });
-    explorer.onmousedown = () => {
+        .addEventListener('click', () => {
+            explorer.classList.toggle('explorer-max');
+        });
+    explorer.onpointerdown = () => {
         bringToFront(explorer);
     }
-    
+
     const viewer = explorer.querySelector('.details-viewer');
 
     explorer.addEventListener('click', e => {

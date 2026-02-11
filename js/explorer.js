@@ -1,13 +1,16 @@
 const main = document.getElementById('main');
 const openAnchors = document.querySelectorAll('[id^="open-"]');
-for (const anchor of openAnchors) {
-    anchor.onclick = () =>{
-        const explorer = document.getElementById(anchor.id.match(/\d+/)[0] + "explorer");
-        if (explorer) {
-            explorer.style.visibility = "visible";
+if (openAnchors) {
+    for (const anchor of openAnchors) {
+        anchor.onclick = () => {
+            const explorer = document.getElementById(anchor.id.match(/\d+/)[0] + "explorer");
+            if (explorer) {
+                explorer.style.visibility = "visible";
+            }
         }
     }
 }
+
 
 let globalProject;
 
@@ -17,7 +20,7 @@ fetchURL("json/projectsInfo.json").then(projects => {
     for (let i = 0; i < projects.projects.length; i++) {
         const explorer = createExplorer(asideItems, projects.projects[i], i);
         main.appendChild(explorer);
-        dragElement(explorer);
+        dragElement(explorer)
         explorer.addEventListener('click', e => {
             const item = e.target.closest('.explorer-content-item');
             if (!item) return;
@@ -26,16 +29,25 @@ fetchURL("json/projectsInfo.json").then(projects => {
             const itemIndex = Number(item.dataset.item);
 
             openDetailsExplorer(projectIndex, itemIndex, explorer, asideItems, i);
-            explorer.style.visibility = 'hidden';
+            if (!isIOSMode) {
+                explorer.style.visibility = 'hidden';
+            }
         });
 
-        explorer.onmousedown = () => {
+        explorer.onpointerdown = () => {
             bringToFront(explorer);
         }
         explorer.querySelector('.explorer-close')
-            .addEventListener('mousedown', e => e.stopPropagation());
+            .addEventListener('pointerdown', e => e.stopPropagation());
 
         explorer.querySelector('.explorer-close')
+            .addEventListener('click', () => {
+                explorer.style.visibility = 'hidden';
+            });
+        explorer.querySelector('.explorer-back')
+            .addEventListener('pointerdown', e => e.stopPropagation());
+
+        explorer.querySelector('.explorer-back')
             .addEventListener('click', () => {
                 explorer.style.visibility = 'hidden';
             });
@@ -69,7 +81,7 @@ function createExplorer(asideItems, projectInfo, i) {
             <div class="explorer-content">
                 <div class="explorer-content-topbar">
                     <div class="explorer-content-topbar-left">
-                        
+                        <svg class="explorer-back" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12H18M6 12L11 7M6 12L11 17"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                         <h3 class="explorer-content-topbar-title">${projectInfo.title}</h3>
 
                     </div>
@@ -110,8 +122,11 @@ function createExplorer(asideItems, projectInfo, i) {
 
     explorer.setAttribute('id', i + "explorer");
     explorer.setAttribute('class', "explorer");
-    explorer.style.left = window.innerHeight / 20 + (20 * i) + "px";
-    explorer.style.top = window.innerHeight / 20 + 20 + (20 * i) + "px";
+    if (!isIOSMode) {
+
+        explorer.style.left = window.innerHeight / 20 + (20 * i) + "px";
+        explorer.style.top = window.innerHeight / 20 + 20 + (20 * i) + "px";
+    }
     explorer.style.visibility = "hidden";
     return explorer;
 }
@@ -167,12 +182,12 @@ function swapExplorer(current, swap) {
     swap.style.zIndex = current.style.zIndex;
     if (current.classList.contains('explorer-max')) {
         swap.classList.add('explorer-max');
-    }else{
+    } else {
         swap.classList.remove('explorer-max');
     }
     current.style.visibility = "hidden";
     swap.style.visibility = "visible";
-    
+
 }
 
 
