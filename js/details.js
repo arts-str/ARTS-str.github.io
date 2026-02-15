@@ -55,7 +55,10 @@ function createDetailsExplorer(item, asideItems, i, itemIndex) {
                     ${createGallery(gallery, i, itemIndex)}
                 </div>
                 <div class="details-content-text">
-                    <h3>${item.title}</h3>
+                    <div class="details-content-text-title">
+                        <h3>${item.title}</h3>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <circle cx="12" cy="12" data-name="--Circle" id="_--Circle" r="10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle> <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="12" y2="16"></line> <line fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="8" y2="8"></line></svg>
+                    </div>
                     <p>${item.description ?? ''}</p>
                 </div>
             </div>

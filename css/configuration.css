@@ -1,20 +1,23 @@
-.screensaver-config{
+.screensaver-config {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     max-width: 700px;
 }
-.current-screensaver{
+
+.current-screensaver {
     width: 100%;
     aspect-ratio: 1366 / 635;
     object-fit: cover;
     object-position: 0 0;
     user-select: none;
 }
-#screensaver-input{
+
+#screensaver-input {
     display: none;
 }
-.screensaver-input-label{
+
+.screensaver-input-label {
     text-align: center;
     user-select: none;
     padding: .4rem;
@@ -26,10 +29,17 @@
     cursor: pointer;
 }
 
-.screensaver-input-label:hover{
-    background-color: var(--hover);
-}
-.active{
+.screensaver-input-label:hover {
     background-color: var(--hover);
 }
 
+.active {
+    background-color: var(--hover);
+}
+
+@media screen and (max-width: 500px) {
+
+    .screensaver-input-label {
+        color: var(--fg);
+    }
+}

@@ -29,7 +29,7 @@ fetchURL("json/projectsInfo.json").then(projects => {
             const itemIndex = Number(item.dataset.item);
 
             openDetailsExplorer(projectIndex, itemIndex, explorer, asideItems, i);
-            if (!isIOSMode) {
+            if (!isIOSMode()) {
                 explorer.style.visibility = 'hidden';
             }
         });
