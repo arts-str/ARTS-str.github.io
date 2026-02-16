@@ -274,6 +274,10 @@
     flex-direction: row;
     gap: 1rem;
     color: var(--explorer-aside-text);
+    /*Arregla contenedores para Safari, sino se colapsan a 0 tamaño*/
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
 }
 
 .details-content-text {
