@@ -1,145 +1,299 @@
+/* ============================================================
+   Hero — full-bleed carousel with technical overlay
+   ============================================================ */
+
 #home {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0;
+    margin: 0;
+    padding: calc(var(--unit) * 2) calc(var(--unit) * 3) calc(var(--unit) * 3);
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: var(--unit);
 }
 
 #hero-section {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    width: 60%;
-    margin: 0 0;
+    width: 100%;
     scroll-behavior: smooth;
     scrollbar-width: none;
+    border: 1px solid var(--border);
 }
 
+#hero-section::-webkit-scrollbar { display: none; }
+
+/* Individual hero slide */
 .hero-card {
     scroll-margin-top: 15rem;
-    height: 500px;
+    height: 520px;
     min-width: 100%;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
+    scroll-snap-align: start;
 }
 
-.hero-content p {
-    line-clamp: 14;
-    -webkit-line-clamp: 14;
+/* Dark vignette on media */
+.hero-background {
+    position: absolute;
+    inset: 0;
 }
 
 .hero-background img,
 .hero-background video {
     width: 100%;
-    overflow: hidden;
+    height: 100%;
     object-fit: cover;
-    border-radius: 5px;
-    transition: transform 100ms ease-in;
+    display: block;
     user-select: none;
+    filter: saturate(0.7) brightness(0.75);
+    transition: filter var(--t-slow);
 }
 
+.hero-card:hover .hero-background img,
+.hero-card:hover .hero-background video {
+    filter: saturate(0.9) brightness(0.8);
+}
+
+/* Overlay gradient — bottom-up */
+.hero-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(10,10,10,0.85) 0%,
+        rgba(10,10,10,0.3) 60%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+/* Content panel */
 .hero-content {
     position: absolute;
-    background-color: var(--bg-overlay);
-    word-wrap: break-word;
-    width: 300px;
-    padding: 1rem;
-    top: 30%;
-    right: 0;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+    /* 48px = button width (40px) + small gap — keeps text clear of overlay buttons */
+    padding: calc(var(--unit) * 3) calc(var(--unit) * 4) calc(var(--unit) * 3) calc(48px + var(--unit) * 2);
+    max-width: calc(460px + 48px);
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    gap: calc(var(--unit) * 1.5);
 }
 
+/* Spec tag above title */
+.hero-content::before {
+    content: '— FEATURED PROJECT';
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    display: block;
+}
+
+.hero-content h1 {
+    font-family: var(--font-mono);
+    font-size: clamp(20px, 3vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text);
+    /* Inline color override from JS will still apply */
+}
+
+.hero-content p {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 1.7;
+    color: rgba(232, 228, 223, 0.75);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    max-width: 380px;
+}
+
+/* CTA */
 .hero-engage {
-    border: 1px solid currentColor;
-    background-color: var(--bg);
-    cursor: pointer;
-    width: auto;
-    padding: 16px;
-    color: currentColor;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 5px;
-    user-select: none;
-    margin-top: 1rem;
-    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--unit);
+    width: fit-content;
+    margin-top: var(--unit);
+    padding: 10px 20px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     text-decoration: none;
+    cursor: crosshair;
+    transition: background var(--t-fast), color var(--t-fast);
+}
+
+.hero-engage::after {
+    content: '→';
+    font-size: 14px;
+    transition: transform var(--t-fast);
 }
 
 .hero-engage:hover {
-    scale: 110%;
-    background-color: var(--bg-hover);
+    background: var(--accent);
+    color: var(--bg);
 }
 
-.hero-content p a {
-    color: currentColor;
-    font-style: italic;
-    text-decoration: underline;
+.hero-engage:hover::after {
+    transform: translateX(4px);
 }
 
+/* Slide index — top right corner marker */
+.hero-card .hero-index-marker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.8);
+    user-select: none;
+}
+
+/* Hero wrapper: relative so buttons can be absolute */
+.hero {
+    position: relative;
+}
+
+/* Hero nav buttons — overlaid on the carousel */
+#hero-back,
+#hero-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 72px;
+    border: 1px solid var(--border-bright);
+    background: rgba(10, 10, 10, 0.55);
+    color: var(--text-dim);
+    font-size: 12px;
+    cursor: crosshair;
+    border-radius: 0;
+    opacity: 0;
+    transition: opacity var(--t-med), border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
+    user-select: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#hero-back { left: 0; border-left: none; }
+#hero-next { right: 0; border-right: none; }
+
+.hero:hover #hero-back,
+.hero:hover #hero-next {
+    opacity: 1;
+}
+
+#hero-back:hover,
+#hero-next:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(10, 10, 10, 0.82);
+}
+
+#hero-back:active,
+#hero-next:active {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+/* Dot anchors */
 #home-anchors {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: calc(var(--unit) * 1.5);
+    margin-top: calc(var(--unit) * 1.5);
 }
 
 #home-anchors a {
-    opacity: 0.2;
-    text-decoration: none;
-    color: currentColor;
-    font-size: 32pt;
-}
-.hero{
-    display: flex;
-    flex-direction: row;
-}
-
-.hero button{
-    border: 1px currentColor solid;
-    background-color: var(--bg);
-    cursor: pointer;
-    position: relative;
-    width: auto;
-    padding: 16px;
-    color: currentColor;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 100ms ease;
-    border-radius: 5px;
-    user-select: none;
-}
-#hero-back{
-    margin: auto 1rem auto auto;
-}
-#hero-next{
-    margin: auto auto auto 1rem;
-}
-.hero button:hover{
-    background-color: var(--text-hover);
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--border-bright);
+    opacity: 1;
+    text-indent: -9999px;
+    transition: background var(--t-med), width var(--t-med);
+    cursor: crosshair;
 }
 
+#home-anchors a.active-gallery-anchor {
+    background: var(--accent);
+    width: 32px;
+}
+
+/* ---- Mobile ---- */
 @media screen and (max-width: 768px) {
-    #hero-section {
-        width: 100%;
-        min-width: 343px;
+    #home {
+        padding: var(--unit);
     }
 
-    .hero-content {
-        bottom: 0;
+    .hero {
+        gap: 0;
+    }
+
+    #hero-back,
+    #hero-next {
+        display: none;
+    }
+
+    #hero-section {
         width: 100%;
-        top: initial;
-        height: fit-content;
     }
 
     .hero-card {
-        scroll-margin-top: 7rem;
-        min-height: 500px;
-        line-clamp: 14;
-        -webkit-line-clamp: 14;
+        min-height: 420px;
+        height: 420px;
     }
-    .hero button{
-        display: none;
+
+    .hero-card::after {
+        background: linear-gradient(
+            to top,
+            rgba(10,10,10,0.92) 0%,
+            rgba(10,10,10,0.4) 50%,
+            transparent 100%
+        );
+    }
+
+    .hero-content {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        max-width: 100%;
+        padding: calc(var(--unit) * 2);
     }
 }

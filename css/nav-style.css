@@ -1,60 +1,175 @@
-.nav{
+/* ============================================================
+   Nav — fixed top bar, TE instrument-panel aesthetic
+   ============================================================ */
+
+.nav {
     position: sticky;
-    width: 100%;
     top: 0;
     left: 0;
+    width: 100%;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: calc(var(--unit) * 2);
+    padding: 0 calc(var(--unit) * 2);
+    height: 52px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    /* subtle readout noise */
+    backdrop-filter: blur(0px);
+}
+
+/* Logo + wordmark */
+.nav-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--unit);
+    text-decoration: none;
+    cursor: crosshair;
+}
+
+.logo {
+    fill: var(--text);
+    width: 55px;
+    height: auto;
+    transition: fill var(--t-fast);
+    flex-shrink: 0;
+}
+
+.nav-logo-wrap:hover .logo {
+    fill: var(--accent);
+}
+
+.nav-wordmark {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--text);
+    text-transform: uppercase;
+    transition: color var(--t-fast);
+}
+
+.nav-logo-wrap:hover .nav-wordmark {
+    color: var(--accent);
+}
+
+/* Meta strip — center */
+.nav-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--unit) * 3);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    user-select: none;
+}
+
+.nav-status {
+    color: var(--accent);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    animation: blink-status 2.4s step-end infinite;
+}
+
+@keyframes blink-status {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
+.nav-coords {
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+}
+
+/* Nav links */
+.nav-links {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    mix-blend-mode: difference;
-    z-index: 1;
+    gap: 0;
 }
 
-.nav-links{
-    margin-right: 1rem;
+.nav-links a {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border-left: 1px solid var(--border);
+    transition: color var(--t-fast), background var(--t-fast);
+    white-space: nowrap;
+    cursor: crosshair;
+    height: 52px;
 }
 
-.nav-links *{
-    margin: .3rem;
-    position: relative;
-    text-decoration: none;
+.nav-links a:last-child {
+    border-right: 1px solid var(--border);
+}
+
+.nav-index {
+    font-size: 8px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    transition: color var(--t-fast);
+}
+
+.nav-links a:hover {
     color: var(--text);
-    transform-origin: center;
-    transition: transform 50ms ease-in;
+    background: var(--bg-secondary);
 }
 
-.nav-links *::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 2px;
-    background: currentColor;
-    transition: width 200ms ease;
+.nav-links a:hover .nav-index {
+    color: var(--accent);
 }
 
-.nav-links *:hover{
-    color: var(--text-hover);
-    transform: scale(110%);
+.nav-links a.active {
+    color: var(--text);
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--accent);
 }
 
-.nav-links *.active::after{
-    width: 100%;
+.nav-links a.active .nav-index {
+    color: var(--accent);
 }
 
-.logo{
-    fill: var(--text);
-    margin: 1rem;
-    width: 80px;
-    transition: transform 50ms ease;
-}
-.logo:hover{
-    fill: var(--text-hover);
-    transform: scale(110%);
-    cursor: pointer;
+/* ---- Mobile ---- */
+@media screen and (max-width: 768px) {
+    .nav {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        height: auto;
+        padding: calc(var(--unit)) calc(var(--unit) * 1.5);
+        gap: var(--unit);
+    }
+
+    .nav-meta {
+        display: none;
+    }
+
+    .nav-links {
+        grid-column: 1 / -1;
+        overflow-x: auto;
+        scrollbar-width: none;
+        gap: 0;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-links a {
+        height: 36px;
+        padding: 4px 10px;
+        font-size: 9px;
+    }
+
+    .nav-wordmark {
+        font-size: 10px;
+    }
 }

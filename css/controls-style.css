@@ -1,39 +1,74 @@
-.controls {
+/* ============================================================
+   Controls — side-overlay prev/next on carousel tracks
+   ============================================================ */
+
+/* Carousel track: positions the article + buttons together */
+.carousel-track {
     position: relative;
-    width: 80dvw;
-    margin-left: 1rem;
+}
+
+/* The buttons live inside .controls, which is abs-positioned */
+.controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
 }
 
 .prev,
 .next {
-    border: 1px solid currentColor;
-    background-color: var(--bg);
-    cursor: pointer;
-    position: relative;
-    width: auto;
-    padding: 16px;
-    color: currentColor;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 100ms ease;
-    border-radius: 5px;
+    pointer-events: all;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 72px;
+    border: 1px solid var(--border-bright);
+    background: rgba(10, 10, 10, 0.55);
+    color: var(--text-dim);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    cursor: crosshair;
+    border-radius: 0;
+    opacity: 0;
+    transition: opacity var(--t-med), border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
     user-select: none;
+    flex-shrink: 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
-/* Position the "next button" to the right */
-.next {
-    left: calc(100dvw - 4rem - 64px);
-    border-radius: 5px;
+.prev { border-left: none; }
+.next { border-right: none; }
+
+.carousel-track:hover .prev,
+.carousel-track:hover .next {
+    opacity: 1;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-    background-color: var(--text-hover);
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(10, 10, 10, 0.82);
 }
 
+.prev:active,
+.next:active {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.section-controls { /* no extra rules needed */ }
+
 @media screen and (max-width: 768px) {
-    .controls{
+    .controls {
         display: none;
     }
 }

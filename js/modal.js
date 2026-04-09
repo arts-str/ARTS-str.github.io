@@ -1,53 +1,186 @@
-
-// Get the modal
 var modal = document.getElementById("popup-modal");
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-    window.location.search = "";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";
+        window.location.search = "";
+    }
 }
 
-function returnModal(project) {
-  const anchors = returnGallery(project).join("");
-  const media = returnMedia(project).join("");
+/* ── Markup builder ────────────────────────────────────────── */
 
-  return `
-      <fieldset style="color:${project.color}; border: 1px solid ${project.color}" class="modal-content">
+function returnModal(project) {
+    const media   = returnMedia(project).join("");
+    const anchors = returnGallery(project).join("");
+
+    return `
+    <fieldset style="color:${project.color}; border: 1px solid ${project.color}" class="modal-content">
         <legend style="color:${project.color}">${project.title}</legend>
         <span style="color:${project.color}" class="close">&times;</span>
         <div class="modal-carousel">
-          <div class="modal-gallery">
-              ${media}
-          </div>
-          <div class="gallery-anchors">
-            ${anchors}
-          </div>
+            <div class="modal-gallery">${media}</div>
+            <button class="modal-prev" aria-label="Previous">&#10094;</button>
+            <button class="modal-next" aria-label="Next">&#10095;</button>
+            <button class="modal-maximize" aria-label="Maximizar galería">&#x2922;</button>
         </div>
+        <div class="gallery-anchors">${anchors}</div>
         <p>${project.description}</p>
-      </div>
-      `
+    </fieldset>`;
 }
 
 function returnMedia(project) {
-  const imgTypes = ["png", "jpg"]; //Tipos de imagen
-  //Si el tipo de archivo es imagen, insertar un img tag, si es video, un video tag
-  let media = [];
-  project.gallery.forEach((mediaElement, index) => {
-    let isImage = imgTypes.includes(mediaElement.slice(mediaElement.length - 3));
-    let mediaHtml = isImage ? `<img draggable="false" id="${index}" src="assets/img/${mediaElement}" alt=""></img>` : `<video draggable="false" id="${index}" autoplay muted loop playsinline> <source src="assets/img/${mediaElement}"> </video>`
-    media.push(mediaHtml);
-  });
-  return media;
+    const imgTypes = ["png", "jpg"];
+    return project.gallery.map((el, i) => {
+        const isImg = imgTypes.includes(el.slice(-3));
+        return isImg
+            ? `<img draggable="false" id="gslide-${i}" src="assets/img/${el}" alt="">`
+            : `<video draggable="false" id="gslide-${i}" autoplay muted loop playsinline><source src="assets/img/${el}"></video>`;
+    });
 }
 
 function returnGallery(project) {
-  let anchors = [];
-  project.gallery.forEach((e, index) => {
-    anchors.push(`<a class="gallery-anchor" href="#${index}" data-section="${index}">&bull;</a>`);
-  })
-  return anchors;
+    return project.gallery.map((e, i) =>
+        `<a class="gallery-anchor" data-index="${i}">&bull;</a>`
+    );
 }
 
+/* ── Gallery controller (called after modal HTML is injected) ── */
+
+function initModalGallery() {
+    const gallery  = modal.querySelector('.modal-gallery');
+    const anchors  = modal.querySelectorAll('.gallery-anchor');
+    const btnPrev  = modal.querySelector('.modal-prev');
+    const btnNext  = modal.querySelector('.modal-next');
+    if (!gallery) return;
+
+    const slideCount = () => gallery.children.length;
+    const slideW     = () => gallery.clientWidth;
+    const currentIdx = () => Math.round(gallery.scrollLeft / slideW());
+
+    function goTo(i) {
+        const total = slideCount();
+        const idx   = ((i % total) + total) % total;
+        gallery.style.scrollBehavior = 'smooth';
+        gallery.scrollLeft = idx * slideW();
+    }
+
+    function updateAnchors() {
+        const i = currentIdx();
+        anchors.forEach((a, idx) =>
+            a.classList.toggle('active-gallery-anchor', idx === i)
+        );
+    }
+
+    // Anchor clicks
+    anchors.forEach((a, i) => {
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            goTo(i);
+        });
+    });
+
+    // Buttons
+    btnPrev && btnPrev.addEventListener('click', () => goTo(currentIdx() - 1));
+    btnNext && btnNext.addEventListener('click', () => goTo(currentIdx() + 1));
+
+    // ── Maximize ────────────────────────────────────────────
+    const btnMax      = modal.querySelector('.modal-maximize');
+    const carousel    = modal.querySelector('.modal-carousel');
+    const fsOverlay   = document.getElementById('gallery-fullscreen');
+    // Keep a reference to carousel's original position
+    const carouselParent    = carousel.parentNode;
+    const carouselNextSibling = carousel.nextSibling;
+    let isMaximized = false;
+
+    function openFullscreen() {
+        isMaximized = true;
+        // Physically move the carousel out of the fieldset into the body overlay
+        fsOverlay.appendChild(carousel);
+        fsOverlay.classList.add('active');
+        btnMax.textContent = '⤡';
+        btnMax.setAttribute('aria-label', 'Restaurar galería');
+        // Recalculate scroll position — clientWidth changed
+        requestAnimationFrame(() => {
+            gallery.style.scrollBehavior = 'auto';
+            gallery.scrollLeft = currentIdx() * slideW();
+            gallery.style.scrollBehavior = 'smooth';
+        });
+    }
+
+    function closeFullscreen() {
+        isMaximized = false;
+        // Move carousel back to its original position in the fieldset
+        carouselParent.insertBefore(carousel, carouselNextSibling);
+        fsOverlay.classList.remove('active');
+        btnMax.textContent = '⤢';
+        btnMax.setAttribute('aria-label', 'Maximizar galería');
+        requestAnimationFrame(() => {
+            gallery.style.scrollBehavior = 'auto';
+            gallery.scrollLeft = currentIdx() * slideW();
+            gallery.style.scrollBehavior = 'smooth';
+        });
+    }
+
+    btnMax && btnMax.addEventListener('click', () => {
+        isMaximized ? closeFullscreen() : openFullscreen();
+    });
+
+    document.addEventListener('keydown', function onKey(e) {
+        if (e.key === 'Escape' && isMaximized) {
+            e.stopPropagation();
+            closeFullscreen();
+        }
+    });
+
+    // Sync dots on scroll
+    gallery.addEventListener('scroll', updateAnchors, { passive: true });
+    updateAnchors();
+
+    // ── Mouse drag ──────────────────────────────────────────
+    let isDown    = false;
+    let startX    = 0;
+    let scrollStart = 0;
+    let didDrag   = false;
+    const THRESHOLD = 6;
+
+    gallery.addEventListener('mousedown', (e) => {
+        if (e.target.closest('button')) return;
+        isDown = true;
+        didDrag = false;
+        startX = e.pageX - gallery.getBoundingClientRect().left;
+        scrollStart = gallery.scrollLeft;
+        gallery.style.scrollBehavior = 'auto';
+        gallery.style.cursor = 'grabbing';
+        e.preventDefault();
+    });
+
+    const endDrag = () => {
+        if (!isDown) return;
+        isDown = false;
+        gallery.style.cursor = 'grab';
+        // snap to nearest
+        gallery.style.scrollBehavior = 'smooth';
+        gallery.scrollLeft = currentIdx() * slideW();
+    };
+
+    gallery.addEventListener('mouseup',    endDrag);
+    gallery.addEventListener('mouseleave', endDrag);
+
+    gallery.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const x = e.pageX - gallery.getBoundingClientRect().left;
+        const delta = x - startX;
+        if (Math.abs(delta) > THRESHOLD) {
+            didDrag = true;
+            gallery.scrollLeft = scrollStart - delta;
+        }
+    });
+
+    gallery.addEventListener('click', (e) => {
+        if (didDrag) {
+            e.preventDefault();
+            e.stopPropagation();
+            didDrag = false;
+        }
+    }, true);
+}
