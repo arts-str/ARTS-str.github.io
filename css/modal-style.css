@@ -252,6 +252,41 @@
     color: var(--bg);
 }
 
+/* Mute button — bottom-right corner of carousel, fullscreen only */
+.modal-mute {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 12;
+    display: none; /* shown via JS only in fullscreen */
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-bright);
+    background: rgba(10, 10, 10, 0.65);
+    color: var(--text-dim);
+    font-size: 16px;
+    font-family: var(--font-mono);
+    cursor: crosshair;
+    transition: border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
+    user-select: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    line-height: 1;
+}
+
+.modal-mute:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(10, 10, 10, 0.82);
+}
+
+.modal-mute:active {
+    background: var(--accent);
+    color: var(--bg);
+}
+
 /* ── Fullscreen overlay (injected into body, outside modal hierarchy) ── */
 
 #gallery-fullscreen {

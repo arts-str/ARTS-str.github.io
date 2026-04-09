@@ -22,6 +22,7 @@ function returnModal(project) {
             <button class="modal-prev" aria-label="Previous">&#10094;</button>
             <button class="modal-next" aria-label="Next">&#10095;</button>
             <button class="modal-maximize" aria-label="Maximizar galería">&#x2922;</button>
+            <button class="modal-mute" aria-label="Activar sonido" style="display:none">&#x1F507;</button>
         </div>
         <div class="gallery-anchors">${anchors}</div>
         <p>${project.description}</p>
@@ -94,22 +95,25 @@ function initModalGallery() {
 
     function openFullscreen() {
         isMaximized = true;
-        // Physically move the carousel out of the fieldset into the body overlay
         fsOverlay.appendChild(carousel);
         fsOverlay.classList.add('active');
         btnMax.textContent = '⤡';
         btnMax.setAttribute('aria-label', 'Restaurar galería');
-        // Recalculate scroll position — clientWidth changed
         requestAnimationFrame(() => {
             gallery.style.scrollBehavior = 'auto';
             gallery.scrollLeft = currentIdx() * slideW();
             gallery.style.scrollBehavior = 'smooth';
+            syncMuteButton();
         });
     }
 
     function closeFullscreen() {
         isMaximized = false;
-        // Move carousel back to its original position in the fieldset
+        // Reset mute state on exit
+        isMuted = true;
+        Array.from(gallery.children).forEach(el => {
+            if (el.tagName === 'VIDEO') el.muted = true;
+        });
         carouselParent.insertBefore(carousel, carouselNextSibling);
         fsOverlay.classList.remove('active');
         btnMax.textContent = '⤢';
@@ -118,6 +122,7 @@ function initModalGallery() {
             gallery.style.scrollBehavior = 'auto';
             gallery.scrollLeft = currentIdx() * slideW();
             gallery.style.scrollBehavior = 'smooth';
+            syncMuteButton();
         });
     }
 
@@ -132,8 +137,42 @@ function initModalGallery() {
         }
     });
 
-    // Sync dots on scroll
-    gallery.addEventListener('scroll', updateAnchors, { passive: true });
+    // ── Mute button ──────────────────────────────────────────
+    const btnMute = modal.querySelector('.modal-mute');
+    let isMuted = true; // videos start muted
+
+    function currentVideo() {
+        const slide = gallery.children[currentIdx()];
+        return slide && slide.tagName === 'VIDEO' ? slide : null;
+    }
+
+    function syncMuteButton() {
+        if (!btnMute) return;
+        const vid = currentVideo();
+        if (!isMaximized || !vid) {
+            btnMute.style.display = 'none';
+            return;
+        }
+        btnMute.style.display = 'inline-flex';
+        btnMute.textContent    = isMuted ? '🔇' : '🔊';
+        btnMute.setAttribute('aria-label', isMuted ? 'Activar sonido' : 'Silenciar');
+    }
+
+    btnMute && btnMute.addEventListener('click', () => {
+        const vid = currentVideo();
+        if (!vid) return;
+        isMuted   = !isMuted;
+        vid.muted = isMuted;
+        syncMuteButton();
+    });
+
+    // Sync button and mute state on every slide scroll
+    gallery.addEventListener('scroll', () => {
+        Array.from(gallery.children).forEach(el => {
+            if (el.tagName === 'VIDEO') el.muted = isMuted;
+        });
+        syncMuteButton();
+    }, { passive: true });
     updateAnchors();
 
     // ── Mouse drag ──────────────────────────────────────────
