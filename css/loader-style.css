@@ -1,0 +1,75 @@
+/* ============================================================
+   Loader — fullscreen overlay, dismissed by loader.js
+   ============================================================ */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 400ms ease, visibility 400ms ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+#loader.loader-done {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--unit) * 2);
+    user-select: none;
+}
+
+.loader-logo {
+    fill: var(--text);
+    width: 64px;
+    height: auto;
+    animation: loader-pulse 2s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+    0%, 100% { opacity: 1;   transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.96); }
+}
+
+.loader-wordmark {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* Progress bar */
+.loader-bar-wrap {
+    width: 160px;
+    height: 2px;
+    background: var(--border);
+    overflow: hidden;
+}
+
+.loader-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 200ms ease;
+}
+
+/* Status label */
+.loader-status {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    min-width: 10ch; /* prevents layout shift during pulse text changes */
+    text-align: center;
+}

@@ -75,8 +75,8 @@ fetchURL('assets/hero.json').then(heroProjects => {
 /* ── Card / anchor builders ──────────────────────────────── */
 
 function returnHeroCard(heroProject, index) {
-    const imgTypes = ['png', 'jpg'];
-    const isImg = imgTypes.includes(heroProject.assetURL.slice(-3));
+    const imgTypes = ['png', 'jpg', 'jpeg', 'webp', 'gif'];
+    const isImg = imgTypes.includes(heroProject.assetURL.split('.').pop().toLowerCase());
     const media = isImg
         ? `<img draggable="false" style="${heroProject.injectedStyle}" src="assets/img/${heroProject.assetURL}" alt="">`
         : `<video draggable="false" style="${heroProject.injectedStyle}" autoplay muted loop playsinline src="assets/img/${heroProject.assetURL}"></video>`;
@@ -87,7 +87,7 @@ function returnHeroCard(heroProject, index) {
         <div style="color:${heroProject.color}; border: 1px dashed ${heroProject.color};" class="hero-content">
             <h1>${heroProject.title}</h1>
             <p>${heroProject.description}</p>
-            <a href='${heroProject.href}' class="hero-engage">Ver más</a>
+            <a href="${heroProject.href}" class="hero-engage">Ver más</a>
         </div>
     </section>`;
 }

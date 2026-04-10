@@ -17,11 +17,12 @@ const fetchURL = async (url) => {
  * @param Number index
  */
 function returnCard(project, index) {
-    const imgTypes = ["png", "jpg"];
+    const ext = project.assetURL.split('.').pop().toLowerCase();
+    const isImg = ['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(ext);
     const idx = index !== undefined ? String(index + 1).padStart(2, '0') : '—';
-    const media = imgTypes.includes(project.assetURL.slice(project.assetURL.length - 3)) ?
-        `<a href='${project.href}'><img draggable="false" style='${project.injectedStyle}' src='assets/img/${project.assetURL}' alt="${project.title}"></a>` :
-        `<a href='${project.href}'><video draggable="false" style='${project.injectedStyle}' autoplay muted loop playsinline src='assets/img/${project.assetURL}'></video></a>`;
+    const media = isImg
+        ? `<a href='${project.href}'><img loading="lazy" draggable="false" style='${project.injectedStyle}' src='assets/img/${project.assetURL}' alt="${project.title}"></a>`
+        : `<a href='${project.href}'><video draggable="false" style='${project.injectedStyle}' autoplay muted loop playsinline src='assets/img/${project.assetURL}'></video></a>`;
 
     return `
     <fieldset class="project-card" data-index="${idx}" data-project-index="${index}" style="border-color: ${project.color || 'var(--border-bright)'}">

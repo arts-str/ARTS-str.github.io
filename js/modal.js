@@ -1,10 +1,20 @@
 var modal = document.getElementById("popup-modal");
 
+// Only close the modal if the click both STARTED and ENDED on the backdrop.
+// Without this, dragging inside the gallery and releasing over the backdrop
+// would fire window.onclick and close the modal.
+let mousedownOnBackdrop = false;
+
+modal.addEventListener('mousedown', (e) => {
+    mousedownOnBackdrop = (e.target === modal);
+});
+
 window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target === modal && mousedownOnBackdrop) {
         modal.style.display = "none";
         window.location.search = "";
     }
+    mousedownOnBackdrop = false;
 }
 
 /* ── Markup builder ────────────────────────────────────────── */
@@ -30,9 +40,10 @@ function returnModal(project) {
 }
 
 function returnMedia(project) {
-    const imgTypes = ["png", "jpg"];
+    const imgTypes = ["png", "jpg", "jpeg", "webp", "gif"];
     return project.gallery.map((el, i) => {
-        const isImg = imgTypes.includes(el.slice(-3));
+        const ext = el.split('.').pop().toLowerCase();
+        const isImg = imgTypes.includes(ext);
         return isImg
             ? `<img draggable="false" id="gslide-${i}" src="assets/img/${el}" alt="">`
             : `<video draggable="false" id="gslide-${i}" autoplay muted loop playsinline><source src="assets/img/${el}"></video>`;
