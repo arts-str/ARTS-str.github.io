@@ -4,6 +4,7 @@ fetchURL('assets/projects.json').then(projects => {
     projects.projects.forEach((project, index) => {
         projectsContainer.innerHTML += returnCard(project, index);
     });
+    observeVideos(projectsContainer);
 
     // Wire up click-to-open-modal on each card.
     // Clicks on <a> tags inside the description pass through normally.

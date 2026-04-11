@@ -65,6 +65,19 @@ function initModalGallery() {
     const btnNext  = modal.querySelector('.modal-next');
     if (!gallery) return;
 
+    // Safari requires muted+playsinline as JS properties AND an explicit play()
+    // call after layout. autoplay attribute alone is not enough on Safari for
+    // dynamically injected videos. setTimeout(0) waits for the browser to
+    // finish parsing and laying out the injected HTML before calling play().
+    const videos = gallery.querySelectorAll('video');
+    videos.forEach(v => {
+        v.muted = true;
+        v.playsInline = true;
+    });
+    setTimeout(() => {
+        videos.forEach(v => v.play().catch(() => {}));
+    }, 0);
+
     const slideCount = () => gallery.children.length;
     const slideW     = () => gallery.clientWidth;
     const currentIdx = () => Math.round(gallery.scrollLeft / slideW());

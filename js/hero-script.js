@@ -59,6 +59,7 @@ fetchURL('assets/hero.json').then(heroProjects => {
     heroProjects.projects.forEach((heroProject, index) => {
         heroContainer.innerHTML += returnHeroCard(heroProject, index);
     });
+    observeVideos(heroContainer, 0.8);
     homeAnchors.innerHTML += returnAnchors(heroProjects.projects);
 }).then(() => {
     handleHeroAnchors();

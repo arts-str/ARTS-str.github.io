@@ -342,27 +342,69 @@
     .modal-content {
         margin: 0 auto;
         width: 100dvw;
-        min-height: 100dvh;
+        height: 100dvh;
+        min-height: unset;
         border-left: none;
         border-right: none;
         animation: none;
+        display: grid;
+        /* ::before top bar | carousel (expands) | dots | description */
+        grid-template-rows: auto 1fr auto auto;
     }
 
+    /* Snap gallery on mobile */
+    .modal-gallery {
+        scroll-snap-type: x mandatory;
+        height: 100%;
+    }
+
+    .modal-carousel {
+        /* fills the 1fr row */
+        min-height: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Slides fill carousel height */
     .modal-gallery img,
     .modal-gallery video {
-        height: 52vw;
-        min-height: 200px;
+        scroll-snap-align: start;
+        height: 100%;
+        min-height: 0;
+        width: 100%;
+        min-width: 100%;
+        aspect-ratio: unset;
+        object-fit: contain;
+        background: #000;
     }
 
     .modal-prev,
     .modal-next {
-        opacity: 1;   /* always visible on touch devices */
+        opacity: 1;
         width: 32px;
-        height: 52px;
+        height: 64px;
     }
 
+    /* Maximize and mute always visible on mobile */
+    .modal-maximize,
+    .modal-mute {
+        opacity: 1 !important;
+    }
+
+    /* Dots below gallery */
+    .gallery-anchors {
+        flex-shrink: 0;
+        padding: calc(var(--unit) * 1.5) 0;
+        justify-content: center;
+        border-bottom: 1px solid var(--border);
+    }
+
+    /* Description at the bottom, fixed height */
     .modal-content > p {
-        font-size: 12px;
-        line-height: 1.7;
+        font-size: 13px;
+        line-height: 1.6;
+        padding: calc(var(--unit) * 2);
+        overflow-y: auto;
+        max-height: 22dvh;
     }
 }

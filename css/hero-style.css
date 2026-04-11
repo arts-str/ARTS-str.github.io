@@ -271,11 +271,14 @@
 
     #hero-section {
         width: 100%;
+        /* JS drag is not active on touch — CSS snap works without conflict */
+        scroll-snap-type: x mandatory;
     }
 
     .hero-card {
         min-height: 420px;
         height: 420px;
+        scroll-snap-align: start;
     }
 
     .hero-card::after {
